@@ -1,0 +1,10 @@
+syntax = "proto3";
+package graphqleditor.text_stream_service;
+
+option go_package = "github.com/graphql-editor/graphql_editor_messages/go/text_stream_service";
+
+import "messages/messages.proto";
+
+service TextStreamService {
+  rpc TextStream(graphqleditor.messages.TextStreamRequest) returns (stream graphqleditor.messages.TextStreamResponse);
+}

@@ -1,0 +1,145 @@
+syntax = "proto3";
+package graphqleditor.messages;
+
+option go_package = "github.com/graphql-editor/graphql_editor_messages/go/messages";
+
+import "stucco-ts-proto-gen/proto/messages/messages.proto";
+
+enum Runtime {
+	NODEJS14 = 0;
+}
+
+enum Status {
+	OK = 0;
+	ERROR = 1;
+}
+
+message Function {
+	string id = 1;
+	string project = 2;
+	string namespace = 3;
+	string work_dir = 4;
+	repeated string files = 5;
+	repeated string build_cmd = 6;
+}
+
+message CreateFunctionRequest {
+	Function function = 1;
+}
+
+message CreateFunctionResponse {
+	message Error {
+		enum ErrorKind {
+			UNKNOWN = 0;
+		}
+		ErrorKind kind = 1;
+		string msg = 2;
+	}
+	string trackId = 1;
+	Status status = 2;
+	repeated Error errors = 3;
+}
+
+enum ReadFunctionStatus {
+	READY = 0;
+	IN_PROGRESS = 1;
+	NOT_DEPLOYED = 2;
+}
+
+message ReadFunctionRequest {
+	Function function = 1;
+}
+
+message ReadFunctionResponse {
+	ReadFunctionStatus status = 1;
+	string url = 2;
+}
+
+message UpdateFunctionRequest {
+	Function function = 1;
+}
+
+message UpdateFunctionResponse {
+	message Error {
+		enum ErrorKind {
+			UNKNOWN = 0;
+		}
+		ErrorKind kind = 1;
+		string msg = 2;
+	}
+	string trackId = 1;
+	Status status = 2;
+	repeated Error errors = 3;
+}
+
+message DeleteFunctionRequest {
+	Function function = 1;
+}
+
+message DeleteFunctionResponse {
+	message Error {
+		enum ErrorKind {
+			UNKNOWN = 0;
+		}
+		ErrorKind kind = 1;
+		string msg = 2;
+	}
+	string trackId = 1;
+	Status status = 2;
+	repeated Error errors = 3;
+}
+
+message LogStreamRequest {
+	Function function = 1;
+}
+
+message LogStreamResponse {
+	message Error {
+		enum ErrorKind {
+			UNKNOWN = 0;
+		}
+		ErrorKind kind = 1;
+		string msg = 2;
+	}
+	string trackId = 1;
+	Status status = 2;
+	repeated Error errors = 3;
+}
+
+message TextStreamRequest {
+	string trackId = 1;
+}
+
+message TextStreamResponse {
+	message Error {
+		enum ErrorKind {
+			UNKNOWN = 0;
+		}
+		ErrorKind kind = 1;
+		string msg = 2;
+	}
+	Status status = 1;
+	repeated string lines = 2;
+	repeated Error errors = 3;
+}
+
+message SubscriptionRequest {
+	string request_id = 1;
+}
+
+message SubscrptionPayload {
+	stucco.messages.Value data = 1;
+	repeated stucco.messages.Value errors = 2;
+}
+
+message SubscriptionResponse {
+	message Error {
+		enum ErrorKind {
+			UNKNOWN = 0;
+		}
+		ErrorKind kind = 1;
+		string msg = 2;
+	}
+	SubscrptionPayload payload = 1;
+	repeated Error errors = 2;
+}
