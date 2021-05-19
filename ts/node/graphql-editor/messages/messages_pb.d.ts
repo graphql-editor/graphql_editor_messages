@@ -602,6 +602,35 @@ export namespace SubscriptionResponse {
 
 }
 
+export class TextStreamSource extends jspb.Message { 
+    getKind(): TextStreamSource.Kind;
+    setKind(value: TextStreamSource.Kind): TextStreamSource;
+    getConfig(): string;
+    setConfig(value: string): TextStreamSource;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): TextStreamSource.AsObject;
+    static toObject(includeInstance: boolean, msg: TextStreamSource): TextStreamSource.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: TextStreamSource, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): TextStreamSource;
+    static deserializeBinaryFromReader(message: TextStreamSource, reader: jspb.BinaryReader): TextStreamSource;
+}
+
+export namespace TextStreamSource {
+    export type AsObject = {
+        kind: TextStreamSource.Kind,
+        config: string,
+    }
+
+    export enum Kind {
+    FUNCTION = 0,
+    JOB = 1,
+    }
+
+}
+
 export enum Runtime {
     NODEJS14 = 0,
 }

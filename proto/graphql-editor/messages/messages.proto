@@ -143,3 +143,12 @@ message SubscriptionResponse {
 	SubscrptionPayload payload = 1;
 	repeated Error errors = 2;
 }
+
+message TextStreamSource {
+	enum Kind {
+		FUNCTION = 0;
+		JOB = 1;
+	}
+	Kind kind = 1;
+	string config = 2;
+}
