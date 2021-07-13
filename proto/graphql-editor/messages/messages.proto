@@ -57,6 +57,8 @@ message ReadFunctionResponse {
 
 message UpdateFunctionRequest {
 	Function function = 1;
+	string url = 2;
+	repeated string secrets = 3;
 }
 
 message UpdateFunctionResponse {

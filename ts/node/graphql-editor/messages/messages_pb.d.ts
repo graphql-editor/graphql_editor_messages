@@ -179,6 +179,12 @@ export class UpdateFunctionRequest extends jspb.Message {
     clearFunction(): void;
     getFunction(): Function | undefined;
     setFunction(value?: Function): UpdateFunctionRequest;
+    getUrl(): string;
+    setUrl(value: string): UpdateFunctionRequest;
+    clearSecretsList(): void;
+    getSecretsList(): Array<string>;
+    setSecretsList(value: Array<string>): UpdateFunctionRequest;
+    addSecrets(value: string, index?: number): string;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): UpdateFunctionRequest.AsObject;
@@ -193,6 +199,8 @@ export class UpdateFunctionRequest extends jspb.Message {
 export namespace UpdateFunctionRequest {
     export type AsObject = {
         pb_function?: Function.AsObject,
+        url: string,
+        secretsList: Array<string>,
     }
 }
 

@@ -2,6 +2,7 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
@@ -186,7 +187,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.graphqleditor.messages.UpdateFunctionRequest = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.graphqleditor.messages.UpdateFunctionRequest.repeatedFields_, null);
 };
 goog.inherits(proto.graphqleditor.messages.UpdateFunctionRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -1707,6 +1708,13 @@ proto.graphqleditor.messages.ReadFunctionResponse.prototype.setUrl = function(va
 
 
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.graphqleditor.messages.UpdateFunctionRequest.repeatedFields_ = [3];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -1738,7 +1746,9 @@ proto.graphqleditor.messages.UpdateFunctionRequest.prototype.toObject = function
  */
 proto.graphqleditor.messages.UpdateFunctionRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    pb_function: (f = msg.getFunction()) && proto.graphqleditor.messages.Function.toObject(includeInstance, f)
+    pb_function: (f = msg.getFunction()) && proto.graphqleditor.messages.Function.toObject(includeInstance, f),
+    url: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    secretsList: (f = jspb.Message.getRepeatedField(msg, 3)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -1780,6 +1790,14 @@ proto.graphqleditor.messages.UpdateFunctionRequest.deserializeBinaryFromReader =
       reader.readMessage(value,proto.graphqleditor.messages.Function.deserializeBinaryFromReader);
       msg.setFunction(value);
       break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setUrl(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addSecrets(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -1815,6 +1833,20 @@ proto.graphqleditor.messages.UpdateFunctionRequest.serializeBinaryToWriter = fun
       1,
       f,
       proto.graphqleditor.messages.Function.serializeBinaryToWriter
+    );
+  }
+  f = message.getUrl();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
+  f = message.getSecretsList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      3,
+      f
     );
   }
 };
@@ -1854,6 +1886,61 @@ proto.graphqleditor.messages.UpdateFunctionRequest.prototype.clearFunction = fun
  */
 proto.graphqleditor.messages.UpdateFunctionRequest.prototype.hasFunction = function() {
   return jspb.Message.getField(this, 1) != null;
+};
+
+
+/**
+ * optional string url = 2;
+ * @return {string}
+ */
+proto.graphqleditor.messages.UpdateFunctionRequest.prototype.getUrl = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.graphqleditor.messages.UpdateFunctionRequest} returns this
+ */
+proto.graphqleditor.messages.UpdateFunctionRequest.prototype.setUrl = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * repeated string secrets = 3;
+ * @return {!Array<string>}
+ */
+proto.graphqleditor.messages.UpdateFunctionRequest.prototype.getSecretsList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 3));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.graphqleditor.messages.UpdateFunctionRequest} returns this
+ */
+proto.graphqleditor.messages.UpdateFunctionRequest.prototype.setSecretsList = function(value) {
+  return jspb.Message.setField(this, 3, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.graphqleditor.messages.UpdateFunctionRequest} returns this
+ */
+proto.graphqleditor.messages.UpdateFunctionRequest.prototype.addSecrets = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 3, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.graphqleditor.messages.UpdateFunctionRequest} returns this
+ */
+proto.graphqleditor.messages.UpdateFunctionRequest.prototype.clearSecretsList = function() {
+  return this.setSecretsList([]);
 };
 
 
