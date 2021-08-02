@@ -59,6 +59,10 @@ message UpdateFunctionRequest {
 	Function function = 1;
 	string url = 2;
 	repeated string secrets = 3;
+	enum EnvType {
+		JS14 = 0;
+	};
+	EnvType envType = 4;
 }
 
 message UpdateFunctionResponse {
@@ -72,10 +76,6 @@ message UpdateFunctionResponse {
 	string trackId = 1;
 	Status status = 2;
 	repeated Error errors = 3;
-	enum EnvType {
-		JS14 = 0;
-	};
-	EnvType envType = 4;
 }
 
 message DeleteFunctionRequest {
