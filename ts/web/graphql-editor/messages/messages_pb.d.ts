@@ -176,6 +176,9 @@ export class UpdateFunctionRequest extends jspb.Message {
   clearSecretsList(): UpdateFunctionRequest;
   addSecrets(value: string, index?: number): UpdateFunctionRequest;
 
+  getEnvtype(): UpdateFunctionRequest.EnvType;
+  setEnvtype(value: UpdateFunctionRequest.EnvType): UpdateFunctionRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UpdateFunctionRequest.AsObject;
   static toObject(includeInstance: boolean, msg: UpdateFunctionRequest): UpdateFunctionRequest.AsObject;
@@ -189,6 +192,11 @@ export namespace UpdateFunctionRequest {
     pb_function?: Function.AsObject,
     url: string,
     secretsList: Array<string>,
+    envtype: UpdateFunctionRequest.EnvType,
+  }
+
+  export enum EnvType { 
+    JS14 = 0,
   }
 }
 
@@ -204,9 +212,6 @@ export class UpdateFunctionResponse extends jspb.Message {
   clearErrorsList(): UpdateFunctionResponse;
   addErrors(value?: UpdateFunctionResponse.Error, index?: number): UpdateFunctionResponse.Error;
 
-  getEnvtype(): UpdateFunctionResponse.EnvType;
-  setEnvtype(value: UpdateFunctionResponse.EnvType): UpdateFunctionResponse;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UpdateFunctionResponse.AsObject;
   static toObject(includeInstance: boolean, msg: UpdateFunctionResponse): UpdateFunctionResponse.AsObject;
@@ -220,7 +225,6 @@ export namespace UpdateFunctionResponse {
     trackid: string,
     status: Status,
     errorsList: Array<UpdateFunctionResponse.Error.AsObject>,
-    envtype: UpdateFunctionResponse.EnvType,
   }
 
   export class Error extends jspb.Message {
@@ -249,10 +253,6 @@ export namespace UpdateFunctionResponse {
     }
   }
 
-
-  export enum EnvType { 
-    JS14 = 0,
-  }
 }
 
 export class DeleteFunctionRequest extends jspb.Message {

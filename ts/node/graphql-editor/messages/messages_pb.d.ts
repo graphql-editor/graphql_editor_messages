@@ -185,6 +185,8 @@ export class UpdateFunctionRequest extends jspb.Message {
     getSecretsList(): Array<string>;
     setSecretsList(value: Array<string>): UpdateFunctionRequest;
     addSecrets(value: string, index?: number): string;
+    getEnvtype(): UpdateFunctionRequest.EnvType;
+    setEnvtype(value: UpdateFunctionRequest.EnvType): UpdateFunctionRequest;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): UpdateFunctionRequest.AsObject;
@@ -201,7 +203,13 @@ export namespace UpdateFunctionRequest {
         pb_function?: Function.AsObject,
         url: string,
         secretsList: Array<string>,
+        envtype: UpdateFunctionRequest.EnvType,
     }
+
+    export enum EnvType {
+    JS14 = 0,
+    }
+
 }
 
 export class UpdateFunctionResponse extends jspb.Message { 
@@ -213,8 +221,6 @@ export class UpdateFunctionResponse extends jspb.Message {
     getErrorsList(): Array<UpdateFunctionResponse.Error>;
     setErrorsList(value: Array<UpdateFunctionResponse.Error>): UpdateFunctionResponse;
     addErrors(value?: UpdateFunctionResponse.Error, index?: number): UpdateFunctionResponse.Error;
-    getEnvtype(): UpdateFunctionResponse.EnvType;
-    setEnvtype(value: UpdateFunctionResponse.EnvType): UpdateFunctionResponse;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): UpdateFunctionResponse.AsObject;
@@ -231,7 +237,6 @@ export namespace UpdateFunctionResponse {
         trackid: string,
         status: Status,
         errorsList: Array<UpdateFunctionResponse.Error.AsObject>,
-        envtype: UpdateFunctionResponse.EnvType,
     }
 
 
@@ -261,11 +266,6 @@ export namespace UpdateFunctionResponse {
     UNKNOWN = 0,
         }
 
-    }
-
-
-    export enum EnvType {
-    JS14 = 0,
     }
 
 }
