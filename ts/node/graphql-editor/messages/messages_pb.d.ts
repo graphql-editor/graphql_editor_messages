@@ -213,6 +213,8 @@ export class UpdateFunctionResponse extends jspb.Message {
     getErrorsList(): Array<UpdateFunctionResponse.Error>;
     setErrorsList(value: Array<UpdateFunctionResponse.Error>): UpdateFunctionResponse;
     addErrors(value?: UpdateFunctionResponse.Error, index?: number): UpdateFunctionResponse.Error;
+    getEnvtype(): UpdateFunctionResponse.EnvType;
+    setEnvtype(value: UpdateFunctionResponse.EnvType): UpdateFunctionResponse;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): UpdateFunctionResponse.AsObject;
@@ -229,6 +231,7 @@ export namespace UpdateFunctionResponse {
         trackid: string,
         status: Status,
         errorsList: Array<UpdateFunctionResponse.Error.AsObject>,
+        envtype: UpdateFunctionResponse.EnvType,
     }
 
 
@@ -258,6 +261,11 @@ export namespace UpdateFunctionResponse {
     UNKNOWN = 0,
         }
 
+    }
+
+
+    export enum EnvType {
+    JS14 = 0,
     }
 
 }

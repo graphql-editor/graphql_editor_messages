@@ -48,6 +48,7 @@ goog.exportSymbol('proto.graphqleditor.messages.TextStreamSource', null, global)
 goog.exportSymbol('proto.graphqleditor.messages.TextStreamSource.Kind', null, global);
 goog.exportSymbol('proto.graphqleditor.messages.UpdateFunctionRequest', null, global);
 goog.exportSymbol('proto.graphqleditor.messages.UpdateFunctionResponse', null, global);
+goog.exportSymbol('proto.graphqleditor.messages.UpdateFunctionResponse.EnvType', null, global);
 goog.exportSymbol('proto.graphqleditor.messages.UpdateFunctionResponse.Error', null, global);
 goog.exportSymbol('proto.graphqleditor.messages.UpdateFunctionResponse.Error.ErrorKind', null, global);
 /**
@@ -1986,7 +1987,8 @@ proto.graphqleditor.messages.UpdateFunctionResponse.toObject = function(includeI
     trackid: jspb.Message.getFieldWithDefault(msg, 1, ""),
     status: jspb.Message.getFieldWithDefault(msg, 2, 0),
     errorsList: jspb.Message.toObjectList(msg.getErrorsList(),
-    proto.graphqleditor.messages.UpdateFunctionResponse.Error.toObject, includeInstance)
+    proto.graphqleditor.messages.UpdateFunctionResponse.Error.toObject, includeInstance),
+    envtype: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
   if (includeInstance) {
@@ -2035,6 +2037,10 @@ proto.graphqleditor.messages.UpdateFunctionResponse.deserializeBinaryFromReader 
       var value = new proto.graphqleditor.messages.UpdateFunctionResponse.Error;
       reader.readMessage(value,proto.graphqleditor.messages.UpdateFunctionResponse.Error.deserializeBinaryFromReader);
       msg.addErrors(value);
+      break;
+    case 4:
+      var value = /** @type {!proto.graphqleditor.messages.UpdateFunctionResponse.EnvType} */ (reader.readEnum());
+      msg.setEnvtype(value);
       break;
     default:
       reader.skipField();
@@ -2087,8 +2093,22 @@ proto.graphqleditor.messages.UpdateFunctionResponse.serializeBinaryToWriter = fu
       proto.graphqleditor.messages.UpdateFunctionResponse.Error.serializeBinaryToWriter
     );
   }
+  f = message.getEnvtype();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      4,
+      f
+    );
+  }
 };
 
+
+/**
+ * @enum {number}
+ */
+proto.graphqleditor.messages.UpdateFunctionResponse.EnvType = {
+  JS14: 0
+};
 
 
 
@@ -2328,6 +2348,24 @@ proto.graphqleditor.messages.UpdateFunctionResponse.prototype.addErrors = functi
  */
 proto.graphqleditor.messages.UpdateFunctionResponse.prototype.clearErrorsList = function() {
   return this.setErrorsList([]);
+};
+
+
+/**
+ * optional EnvType envType = 4;
+ * @return {!proto.graphqleditor.messages.UpdateFunctionResponse.EnvType}
+ */
+proto.graphqleditor.messages.UpdateFunctionResponse.prototype.getEnvtype = function() {
+  return /** @type {!proto.graphqleditor.messages.UpdateFunctionResponse.EnvType} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/**
+ * @param {!proto.graphqleditor.messages.UpdateFunctionResponse.EnvType} value
+ * @return {!proto.graphqleditor.messages.UpdateFunctionResponse} returns this
+ */
+proto.graphqleditor.messages.UpdateFunctionResponse.prototype.setEnvtype = function(value) {
+  return jspb.Message.setProto3EnumField(this, 4, value);
 };
 
 
