@@ -1869,7 +1869,7 @@ proto.graphqleditor.messages.UpdateFunctionRequest.serializeBinaryToWriter = fun
  * @enum {number}
  */
 proto.graphqleditor.messages.UpdateFunctionRequest.EnvType = {
-  JS14: 0
+  NODE14: 0
 };
 
 /**

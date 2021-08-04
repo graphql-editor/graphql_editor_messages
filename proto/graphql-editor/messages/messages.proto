@@ -60,7 +60,7 @@ message UpdateFunctionRequest {
 	string url = 2;
 	repeated string secrets = 3;
 	enum EnvType {
-		JS14 = 0;
+		NODE14 = 0;
 	};
 	EnvType envType = 4;
 }

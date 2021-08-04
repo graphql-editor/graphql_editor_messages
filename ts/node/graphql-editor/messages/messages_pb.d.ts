@@ -207,7 +207,7 @@ export namespace UpdateFunctionRequest {
     }
 
     export enum EnvType {
-    JS14 = 0,
+    NODE14 = 0,
     }
 
 }
