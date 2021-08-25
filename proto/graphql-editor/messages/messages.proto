@@ -177,6 +177,7 @@ message GetJobStatusResponse {
 		SUCCEEDED = 2;
 		FAILED = 3;
 	}
-	JobStatus status = 1;
+	Status status = 1;
+	JobStatus job_status = 2;
 	repeated Error errors = 3;
 }

@@ -668,8 +668,10 @@ export namespace GetJobStatusRequest {
 }
 
 export class GetJobStatusResponse extends jspb.Message { 
-    getStatus(): GetJobStatusResponse.JobStatus;
-    setStatus(value: GetJobStatusResponse.JobStatus): GetJobStatusResponse;
+    getStatus(): Status;
+    setStatus(value: Status): GetJobStatusResponse;
+    getJobStatus(): GetJobStatusResponse.JobStatus;
+    setJobStatus(value: GetJobStatusResponse.JobStatus): GetJobStatusResponse;
     clearErrorsList(): void;
     getErrorsList(): Array<GetJobStatusResponse.Error>;
     setErrorsList(value: Array<GetJobStatusResponse.Error>): GetJobStatusResponse;
@@ -687,7 +689,8 @@ export class GetJobStatusResponse extends jspb.Message {
 
 export namespace GetJobStatusResponse {
     export type AsObject = {
-        status: GetJobStatusResponse.JobStatus,
+        status: Status,
+        jobStatus: GetJobStatusResponse.JobStatus,
         errorsList: Array<GetJobStatusResponse.Error.AsObject>,
     }
 

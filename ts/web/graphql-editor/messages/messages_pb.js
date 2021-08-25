@@ -5106,6 +5106,7 @@ proto.graphqleditor.messages.GetJobStatusResponse.prototype.toObject = function(
 proto.graphqleditor.messages.GetJobStatusResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     status: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    jobStatus: jspb.Message.getFieldWithDefault(msg, 2, 0),
     errorsList: jspb.Message.toObjectList(msg.getErrorsList(),
     proto.graphqleditor.messages.GetJobStatusResponse.Error.toObject, includeInstance)
   };
@@ -5145,8 +5146,12 @@ proto.graphqleditor.messages.GetJobStatusResponse.deserializeBinaryFromReader = 
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {!proto.graphqleditor.messages.GetJobStatusResponse.JobStatus} */ (reader.readEnum());
+      var value = /** @type {!proto.graphqleditor.messages.Status} */ (reader.readEnum());
       msg.setStatus(value);
+      break;
+    case 2:
+      var value = /** @type {!proto.graphqleditor.messages.GetJobStatusResponse.JobStatus} */ (reader.readEnum());
+      msg.setJobStatus(value);
       break;
     case 3:
       var value = new proto.graphqleditor.messages.GetJobStatusResponse.Error;
@@ -5186,6 +5191,13 @@ proto.graphqleditor.messages.GetJobStatusResponse.serializeBinaryToWriter = func
   if (f !== 0.0) {
     writer.writeEnum(
       1,
+      f
+    );
+  }
+  f = message.getJobStatus();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      2,
       f
     );
   }
@@ -5378,11 +5390,29 @@ proto.graphqleditor.messages.GetJobStatusResponse.Error.prototype.setMsg = funct
 
 
 /**
- * optional JobStatus status = 1;
- * @return {!proto.graphqleditor.messages.GetJobStatusResponse.JobStatus}
+ * optional Status status = 1;
+ * @return {!proto.graphqleditor.messages.Status}
  */
 proto.graphqleditor.messages.GetJobStatusResponse.prototype.getStatus = function() {
-  return /** @type {!proto.graphqleditor.messages.GetJobStatusResponse.JobStatus} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+  return /** @type {!proto.graphqleditor.messages.Status} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+};
+
+
+/**
+ * @param {!proto.graphqleditor.messages.Status} value
+ * @return {!proto.graphqleditor.messages.GetJobStatusResponse} returns this
+ */
+proto.graphqleditor.messages.GetJobStatusResponse.prototype.setStatus = function(value) {
+  return jspb.Message.setProto3EnumField(this, 1, value);
+};
+
+
+/**
+ * optional JobStatus job_status = 2;
+ * @return {!proto.graphqleditor.messages.GetJobStatusResponse.JobStatus}
+ */
+proto.graphqleditor.messages.GetJobStatusResponse.prototype.getJobStatus = function() {
+  return /** @type {!proto.graphqleditor.messages.GetJobStatusResponse.JobStatus} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
@@ -5390,8 +5420,8 @@ proto.graphqleditor.messages.GetJobStatusResponse.prototype.getStatus = function
  * @param {!proto.graphqleditor.messages.GetJobStatusResponse.JobStatus} value
  * @return {!proto.graphqleditor.messages.GetJobStatusResponse} returns this
  */
-proto.graphqleditor.messages.GetJobStatusResponse.prototype.setStatus = function(value) {
-  return jspb.Message.setProto3EnumField(this, 1, value);
+proto.graphqleditor.messages.GetJobStatusResponse.prototype.setJobStatus = function(value) {
+  return jspb.Message.setProto3EnumField(this, 2, value);
 };
 
 
