@@ -604,50 +604,50 @@ export namespace TextStreamSource {
   }
 }
 
-export class JobStatusRequest extends jspb.Message {
+export class GetJobStatusRequest extends jspb.Message {
   getTrackid(): string;
-  setTrackid(value: string): JobStatusRequest;
+  setTrackid(value: string): GetJobStatusRequest;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): JobStatusRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: JobStatusRequest): JobStatusRequest.AsObject;
-  static serializeBinaryToWriter(message: JobStatusRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): JobStatusRequest;
-  static deserializeBinaryFromReader(message: JobStatusRequest, reader: jspb.BinaryReader): JobStatusRequest;
+  toObject(includeInstance?: boolean): GetJobStatusRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: GetJobStatusRequest): GetJobStatusRequest.AsObject;
+  static serializeBinaryToWriter(message: GetJobStatusRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetJobStatusRequest;
+  static deserializeBinaryFromReader(message: GetJobStatusRequest, reader: jspb.BinaryReader): GetJobStatusRequest;
 }
 
-export namespace JobStatusRequest {
+export namespace GetJobStatusRequest {
   export type AsObject = {
     trackid: string,
   }
 }
 
-export class JobStatusResponse extends jspb.Message {
-  getStatus(): JobStatusResponse.JobStatus;
-  setStatus(value: JobStatusResponse.JobStatus): JobStatusResponse;
+export class GetJobStatusResponse extends jspb.Message {
+  getStatus(): GetJobStatusResponse.JobStatus;
+  setStatus(value: GetJobStatusResponse.JobStatus): GetJobStatusResponse;
 
-  getErrorsList(): Array<JobStatusResponse.Error>;
-  setErrorsList(value: Array<JobStatusResponse.Error>): JobStatusResponse;
-  clearErrorsList(): JobStatusResponse;
-  addErrors(value?: JobStatusResponse.Error, index?: number): JobStatusResponse.Error;
+  getErrorsList(): Array<GetJobStatusResponse.Error>;
+  setErrorsList(value: Array<GetJobStatusResponse.Error>): GetJobStatusResponse;
+  clearErrorsList(): GetJobStatusResponse;
+  addErrors(value?: GetJobStatusResponse.Error, index?: number): GetJobStatusResponse.Error;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): JobStatusResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: JobStatusResponse): JobStatusResponse.AsObject;
-  static serializeBinaryToWriter(message: JobStatusResponse, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): JobStatusResponse;
-  static deserializeBinaryFromReader(message: JobStatusResponse, reader: jspb.BinaryReader): JobStatusResponse;
+  toObject(includeInstance?: boolean): GetJobStatusResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: GetJobStatusResponse): GetJobStatusResponse.AsObject;
+  static serializeBinaryToWriter(message: GetJobStatusResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetJobStatusResponse;
+  static deserializeBinaryFromReader(message: GetJobStatusResponse, reader: jspb.BinaryReader): GetJobStatusResponse;
 }
 
-export namespace JobStatusResponse {
+export namespace GetJobStatusResponse {
   export type AsObject = {
-    status: JobStatusResponse.JobStatus,
-    errorsList: Array<JobStatusResponse.Error.AsObject>,
+    status: GetJobStatusResponse.JobStatus,
+    errorsList: Array<GetJobStatusResponse.Error.AsObject>,
   }
 
   export class Error extends jspb.Message {
-    getKind(): JobStatusResponse.Error.ErrorKind;
-    setKind(value: JobStatusResponse.Error.ErrorKind): Error;
+    getKind(): GetJobStatusResponse.Error.ErrorKind;
+    setKind(value: GetJobStatusResponse.Error.ErrorKind): Error;
 
     getMsg(): string;
     setMsg(value: string): Error;
@@ -662,7 +662,7 @@ export namespace JobStatusResponse {
 
   export namespace Error {
     export type AsObject = {
-      kind: JobStatusResponse.Error.ErrorKind,
+      kind: GetJobStatusResponse.Error.ErrorKind,
       msg: string,
     }
 

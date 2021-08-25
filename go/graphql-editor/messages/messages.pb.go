@@ -506,24 +506,24 @@ func (TextStreamSource_Kind) EnumDescriptor() ([]byte, []int) {
 	return file_graphql_editor_messages_messages_proto_rawDescGZIP(), []int{16, 0}
 }
 
-type JobStatusResponse_JobStatus int32
+type GetJobStatusResponse_JobStatus int32
 
 const (
-	JobStatusResponse_STARTING  JobStatusResponse_JobStatus = 0
-	JobStatusResponse_RUNNING   JobStatusResponse_JobStatus = 1
-	JobStatusResponse_SUCCEEDED JobStatusResponse_JobStatus = 2
-	JobStatusResponse_FAILED    JobStatusResponse_JobStatus = 3
+	GetJobStatusResponse_STARTING  GetJobStatusResponse_JobStatus = 0
+	GetJobStatusResponse_RUNNING   GetJobStatusResponse_JobStatus = 1
+	GetJobStatusResponse_SUCCEEDED GetJobStatusResponse_JobStatus = 2
+	GetJobStatusResponse_FAILED    GetJobStatusResponse_JobStatus = 3
 )
 
-// Enum value maps for JobStatusResponse_JobStatus.
+// Enum value maps for GetJobStatusResponse_JobStatus.
 var (
-	JobStatusResponse_JobStatus_name = map[int32]string{
+	GetJobStatusResponse_JobStatus_name = map[int32]string{
 		0: "STARTING",
 		1: "RUNNING",
 		2: "SUCCEEDED",
 		3: "FAILED",
 	}
-	JobStatusResponse_JobStatus_value = map[string]int32{
+	GetJobStatusResponse_JobStatus_value = map[string]int32{
 		"STARTING":  0,
 		"RUNNING":   1,
 		"SUCCEEDED": 2,
@@ -531,73 +531,73 @@ var (
 	}
 )
 
-func (x JobStatusResponse_JobStatus) Enum() *JobStatusResponse_JobStatus {
-	p := new(JobStatusResponse_JobStatus)
+func (x GetJobStatusResponse_JobStatus) Enum() *GetJobStatusResponse_JobStatus {
+	p := new(GetJobStatusResponse_JobStatus)
 	*p = x
 	return p
 }
 
-func (x JobStatusResponse_JobStatus) String() string {
+func (x GetJobStatusResponse_JobStatus) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
-func (JobStatusResponse_JobStatus) Descriptor() protoreflect.EnumDescriptor {
+func (GetJobStatusResponse_JobStatus) Descriptor() protoreflect.EnumDescriptor {
 	return file_graphql_editor_messages_messages_proto_enumTypes[11].Descriptor()
 }
 
-func (JobStatusResponse_JobStatus) Type() protoreflect.EnumType {
+func (GetJobStatusResponse_JobStatus) Type() protoreflect.EnumType {
 	return &file_graphql_editor_messages_messages_proto_enumTypes[11]
 }
 
-func (x JobStatusResponse_JobStatus) Number() protoreflect.EnumNumber {
+func (x GetJobStatusResponse_JobStatus) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
-// Deprecated: Use JobStatusResponse_JobStatus.Descriptor instead.
-func (JobStatusResponse_JobStatus) EnumDescriptor() ([]byte, []int) {
+// Deprecated: Use GetJobStatusResponse_JobStatus.Descriptor instead.
+func (GetJobStatusResponse_JobStatus) EnumDescriptor() ([]byte, []int) {
 	return file_graphql_editor_messages_messages_proto_rawDescGZIP(), []int{18, 0}
 }
 
-type JobStatusResponse_Error_ErrorKind int32
+type GetJobStatusResponse_Error_ErrorKind int32
 
 const (
-	JobStatusResponse_Error_UNKNOWN JobStatusResponse_Error_ErrorKind = 0
+	GetJobStatusResponse_Error_UNKNOWN GetJobStatusResponse_Error_ErrorKind = 0
 )
 
-// Enum value maps for JobStatusResponse_Error_ErrorKind.
+// Enum value maps for GetJobStatusResponse_Error_ErrorKind.
 var (
-	JobStatusResponse_Error_ErrorKind_name = map[int32]string{
+	GetJobStatusResponse_Error_ErrorKind_name = map[int32]string{
 		0: "UNKNOWN",
 	}
-	JobStatusResponse_Error_ErrorKind_value = map[string]int32{
+	GetJobStatusResponse_Error_ErrorKind_value = map[string]int32{
 		"UNKNOWN": 0,
 	}
 )
 
-func (x JobStatusResponse_Error_ErrorKind) Enum() *JobStatusResponse_Error_ErrorKind {
-	p := new(JobStatusResponse_Error_ErrorKind)
+func (x GetJobStatusResponse_Error_ErrorKind) Enum() *GetJobStatusResponse_Error_ErrorKind {
+	p := new(GetJobStatusResponse_Error_ErrorKind)
 	*p = x
 	return p
 }
 
-func (x JobStatusResponse_Error_ErrorKind) String() string {
+func (x GetJobStatusResponse_Error_ErrorKind) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
-func (JobStatusResponse_Error_ErrorKind) Descriptor() protoreflect.EnumDescriptor {
+func (GetJobStatusResponse_Error_ErrorKind) Descriptor() protoreflect.EnumDescriptor {
 	return file_graphql_editor_messages_messages_proto_enumTypes[12].Descriptor()
 }
 
-func (JobStatusResponse_Error_ErrorKind) Type() protoreflect.EnumType {
+func (GetJobStatusResponse_Error_ErrorKind) Type() protoreflect.EnumType {
 	return &file_graphql_editor_messages_messages_proto_enumTypes[12]
 }
 
-func (x JobStatusResponse_Error_ErrorKind) Number() protoreflect.EnumNumber {
+func (x GetJobStatusResponse_Error_ErrorKind) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
-// Deprecated: Use JobStatusResponse_Error_ErrorKind.Descriptor instead.
-func (JobStatusResponse_Error_ErrorKind) EnumDescriptor() ([]byte, []int) {
+// Deprecated: Use GetJobStatusResponse_Error_ErrorKind.Descriptor instead.
+func (GetJobStatusResponse_Error_ErrorKind) EnumDescriptor() ([]byte, []int) {
 	return file_graphql_editor_messages_messages_proto_rawDescGZIP(), []int{18, 0, 0}
 }
 
@@ -1576,7 +1576,7 @@ func (x *TextStreamSource) GetConfig() string {
 	return ""
 }
 
-type JobStatusRequest struct {
+type GetJobStatusRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -1584,8 +1584,8 @@ type JobStatusRequest struct {
 	TrackId string `protobuf:"bytes,1,opt,name=trackId,proto3" json:"trackId,omitempty"`
 }
 
-func (x *JobStatusRequest) Reset() {
-	*x = JobStatusRequest{}
+func (x *GetJobStatusRequest) Reset() {
+	*x = GetJobStatusRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_graphql_editor_messages_messages_proto_msgTypes[17]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1593,13 +1593,13 @@ func (x *JobStatusRequest) Reset() {
 	}
 }
 
-func (x *JobStatusRequest) String() string {
+func (x *GetJobStatusRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*JobStatusRequest) ProtoMessage() {}
+func (*GetJobStatusRequest) ProtoMessage() {}
 
-func (x *JobStatusRequest) ProtoReflect() protoreflect.Message {
+func (x *GetJobStatusRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_graphql_editor_messages_messages_proto_msgTypes[17]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1611,29 +1611,29 @@ func (x *JobStatusRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use JobStatusRequest.ProtoReflect.Descriptor instead.
-func (*JobStatusRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetJobStatusRequest.ProtoReflect.Descriptor instead.
+func (*GetJobStatusRequest) Descriptor() ([]byte, []int) {
 	return file_graphql_editor_messages_messages_proto_rawDescGZIP(), []int{17}
 }
 
-func (x *JobStatusRequest) GetTrackId() string {
+func (x *GetJobStatusRequest) GetTrackId() string {
 	if x != nil {
 		return x.TrackId
 	}
 	return ""
 }
 
-type JobStatusResponse struct {
+type GetJobStatusResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Status JobStatusResponse_JobStatus `protobuf:"varint,1,opt,name=status,proto3,enum=graphqleditor.messages.JobStatusResponse_JobStatus" json:"status,omitempty"`
-	Errors []*JobStatusResponse_Error  `protobuf:"bytes,3,rep,name=errors,proto3" json:"errors,omitempty"`
+	Status GetJobStatusResponse_JobStatus `protobuf:"varint,1,opt,name=status,proto3,enum=graphqleditor.messages.GetJobStatusResponse_JobStatus" json:"status,omitempty"`
+	Errors []*GetJobStatusResponse_Error  `protobuf:"bytes,3,rep,name=errors,proto3" json:"errors,omitempty"`
 }
 
-func (x *JobStatusResponse) Reset() {
-	*x = JobStatusResponse{}
+func (x *GetJobStatusResponse) Reset() {
+	*x = GetJobStatusResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_graphql_editor_messages_messages_proto_msgTypes[18]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1641,13 +1641,13 @@ func (x *JobStatusResponse) Reset() {
 	}
 }
 
-func (x *JobStatusResponse) String() string {
+func (x *GetJobStatusResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*JobStatusResponse) ProtoMessage() {}
+func (*GetJobStatusResponse) ProtoMessage() {}
 
-func (x *JobStatusResponse) ProtoReflect() protoreflect.Message {
+func (x *GetJobStatusResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_graphql_editor_messages_messages_proto_msgTypes[18]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1659,19 +1659,19 @@ func (x *JobStatusResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use JobStatusResponse.ProtoReflect.Descriptor instead.
-func (*JobStatusResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetJobStatusResponse.ProtoReflect.Descriptor instead.
+func (*GetJobStatusResponse) Descriptor() ([]byte, []int) {
 	return file_graphql_editor_messages_messages_proto_rawDescGZIP(), []int{18}
 }
 
-func (x *JobStatusResponse) GetStatus() JobStatusResponse_JobStatus {
+func (x *GetJobStatusResponse) GetStatus() GetJobStatusResponse_JobStatus {
 	if x != nil {
 		return x.Status
 	}
-	return JobStatusResponse_STARTING
+	return GetJobStatusResponse_STARTING
 }
 
-func (x *JobStatusResponse) GetErrors() []*JobStatusResponse_Error {
+func (x *GetJobStatusResponse) GetErrors() []*GetJobStatusResponse_Error {
 	if x != nil {
 		return x.Errors
 	}
@@ -2008,17 +2008,17 @@ func (x *SubscriptionResponse_Error) GetMsg() string {
 	return ""
 }
 
-type JobStatusResponse_Error struct {
+type GetJobStatusResponse_Error struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Kind JobStatusResponse_Error_ErrorKind `protobuf:"varint,1,opt,name=kind,proto3,enum=graphqleditor.messages.JobStatusResponse_Error_ErrorKind" json:"kind,omitempty"`
-	Msg  string                            `protobuf:"bytes,2,opt,name=msg,proto3" json:"msg,omitempty"`
+	Kind GetJobStatusResponse_Error_ErrorKind `protobuf:"varint,1,opt,name=kind,proto3,enum=graphqleditor.messages.GetJobStatusResponse_Error_ErrorKind" json:"kind,omitempty"`
+	Msg  string                               `protobuf:"bytes,2,opt,name=msg,proto3" json:"msg,omitempty"`
 }
 
-func (x *JobStatusResponse_Error) Reset() {
-	*x = JobStatusResponse_Error{}
+func (x *GetJobStatusResponse_Error) Reset() {
+	*x = GetJobStatusResponse_Error{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_graphql_editor_messages_messages_proto_msgTypes[25]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2026,13 +2026,13 @@ func (x *JobStatusResponse_Error) Reset() {
 	}
 }
 
-func (x *JobStatusResponse_Error) String() string {
+func (x *GetJobStatusResponse_Error) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*JobStatusResponse_Error) ProtoMessage() {}
+func (*GetJobStatusResponse_Error) ProtoMessage() {}
 
-func (x *JobStatusResponse_Error) ProtoReflect() protoreflect.Message {
+func (x *GetJobStatusResponse_Error) ProtoReflect() protoreflect.Message {
 	mi := &file_graphql_editor_messages_messages_proto_msgTypes[25]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2044,19 +2044,19 @@ func (x *JobStatusResponse_Error) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use JobStatusResponse_Error.ProtoReflect.Descriptor instead.
-func (*JobStatusResponse_Error) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetJobStatusResponse_Error.ProtoReflect.Descriptor instead.
+func (*GetJobStatusResponse_Error) Descriptor() ([]byte, []int) {
 	return file_graphql_editor_messages_messages_proto_rawDescGZIP(), []int{18, 0}
 }
 
-func (x *JobStatusResponse_Error) GetKind() JobStatusResponse_Error_ErrorKind {
+func (x *GetJobStatusResponse_Error) GetKind() GetJobStatusResponse_Error_ErrorKind {
 	if x != nil {
 		return x.Kind
 	}
-	return JobStatusResponse_Error_UNKNOWN
+	return GetJobStatusResponse_Error_UNKNOWN
 }
 
-func (x *JobStatusResponse_Error) GetMsg() string {
+func (x *GetJobStatusResponse_Error) GetMsg() string {
 	if x != nil {
 		return x.Msg
 	}
@@ -2267,46 +2267,47 @@ var file_graphql_editor_messages_messages_proto_rawDesc = []byte{
 	0x64, 0x12, 0x16, 0x0a, 0x06, 0x63, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x18, 0x02, 0x20, 0x01, 0x28,
 	0x09, 0x52, 0x06, 0x63, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x22, 0x1d, 0x0a, 0x04, 0x4b, 0x69, 0x6e,
 	0x64, 0x12, 0x0c, 0x0a, 0x08, 0x46, 0x55, 0x4e, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x10, 0x00, 0x12,
-	0x07, 0x0a, 0x03, 0x4a, 0x4f, 0x42, 0x10, 0x01, 0x22, 0x2c, 0x0a, 0x10, 0x4a, 0x6f, 0x62, 0x53,
-	0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x18, 0x0a, 0x07,
-	0x74, 0x72, 0x61, 0x63, 0x6b, 0x49, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x74,
-	0x72, 0x61, 0x63, 0x6b, 0x49, 0x64, 0x22, 0xf1, 0x02, 0x0a, 0x11, 0x4a, 0x6f, 0x62, 0x53, 0x74,
-	0x61, 0x74, 0x75, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x4b, 0x0a, 0x06,
-	0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x33, 0x2e, 0x67,
-	0x72, 0x61, 0x70, 0x68, 0x71, 0x6c, 0x65, 0x64, 0x69, 0x74, 0x6f, 0x72, 0x2e, 0x6d, 0x65, 0x73,
-	0x73, 0x61, 0x67, 0x65, 0x73, 0x2e, 0x4a, 0x6f, 0x62, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x2e, 0x4a, 0x6f, 0x62, 0x53, 0x74, 0x61, 0x74, 0x75,
-	0x73, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x47, 0x0a, 0x06, 0x65, 0x72, 0x72,
-	0x6f, 0x72, 0x73, 0x18, 0x03, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x2f, 0x2e, 0x67, 0x72, 0x61, 0x70,
-	0x68, 0x71, 0x6c, 0x65, 0x64, 0x69, 0x74, 0x6f, 0x72, 0x2e, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67,
-	0x65, 0x73, 0x2e, 0x4a, 0x6f, 0x62, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x2e, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x52, 0x06, 0x65, 0x72, 0x72, 0x6f,
-	0x72, 0x73, 0x1a, 0x82, 0x01, 0x0a, 0x05, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x12, 0x4d, 0x0a, 0x04,
-	0x6b, 0x69, 0x6e, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x39, 0x2e, 0x67, 0x72, 0x61,
-	0x70, 0x68, 0x71, 0x6c, 0x65, 0x64, 0x69, 0x74, 0x6f, 0x72, 0x2e, 0x6d, 0x65, 0x73, 0x73, 0x61,
-	0x67, 0x65, 0x73, 0x2e, 0x4a, 0x6f, 0x62, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x2e, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x2e, 0x45, 0x72, 0x72, 0x6f,
-	0x72, 0x4b, 0x69, 0x6e, 0x64, 0x52, 0x04, 0x6b, 0x69, 0x6e, 0x64, 0x12, 0x10, 0x0a, 0x03, 0x6d,
-	0x73, 0x67, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x6d, 0x73, 0x67, 0x22, 0x18, 0x0a,
-	0x09, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x4b, 0x69, 0x6e, 0x64, 0x12, 0x0b, 0x0a, 0x07, 0x55, 0x4e,
-	0x4b, 0x4e, 0x4f, 0x57, 0x4e, 0x10, 0x00, 0x22, 0x41, 0x0a, 0x09, 0x4a, 0x6f, 0x62, 0x53, 0x74,
-	0x61, 0x74, 0x75, 0x73, 0x12, 0x0c, 0x0a, 0x08, 0x53, 0x54, 0x41, 0x52, 0x54, 0x49, 0x4e, 0x47,
-	0x10, 0x00, 0x12, 0x0b, 0x0a, 0x07, 0x52, 0x55, 0x4e, 0x4e, 0x49, 0x4e, 0x47, 0x10, 0x01, 0x12,
-	0x0d, 0x0a, 0x09, 0x53, 0x55, 0x43, 0x43, 0x45, 0x45, 0x44, 0x45, 0x44, 0x10, 0x02, 0x12, 0x0a,
-	0x0a, 0x06, 0x46, 0x41, 0x49, 0x4c, 0x45, 0x44, 0x10, 0x03, 0x2a, 0x17, 0x0a, 0x07, 0x52, 0x75,
-	0x6e, 0x74, 0x69, 0x6d, 0x65, 0x12, 0x0c, 0x0a, 0x08, 0x4e, 0x4f, 0x44, 0x45, 0x4a, 0x53, 0x31,
-	0x34, 0x10, 0x00, 0x2a, 0x1b, 0x0a, 0x06, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x06, 0x0a,
-	0x02, 0x4f, 0x4b, 0x10, 0x00, 0x12, 0x09, 0x0a, 0x05, 0x45, 0x52, 0x52, 0x4f, 0x52, 0x10, 0x01,
-	0x2a, 0x42, 0x0a, 0x12, 0x52, 0x65, 0x61, 0x64, 0x46, 0x75, 0x6e, 0x63, 0x74, 0x69, 0x6f, 0x6e,
-	0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x09, 0x0a, 0x05, 0x52, 0x45, 0x41, 0x44, 0x59, 0x10,
-	0x00, 0x12, 0x0f, 0x0a, 0x0b, 0x49, 0x4e, 0x5f, 0x50, 0x52, 0x4f, 0x47, 0x52, 0x45, 0x53, 0x53,
-	0x10, 0x01, 0x12, 0x10, 0x0a, 0x0c, 0x4e, 0x4f, 0x54, 0x5f, 0x44, 0x45, 0x50, 0x4c, 0x4f, 0x59,
-	0x45, 0x44, 0x10, 0x02, 0x42, 0x4e, 0x5a, 0x4c, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63,
-	0x6f, 0x6d, 0x2f, 0x67, 0x72, 0x61, 0x70, 0x68, 0x71, 0x6c, 0x2d, 0x65, 0x64, 0x69, 0x74, 0x6f,
-	0x72, 0x2f, 0x67, 0x72, 0x61, 0x70, 0x68, 0x71, 0x6c, 0x5f, 0x65, 0x64, 0x69, 0x74, 0x6f, 0x72,
-	0x5f, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x2f, 0x67, 0x6f, 0x2f, 0x67, 0x72, 0x61,
-	0x70, 0x68, 0x71, 0x6c, 0x2d, 0x65, 0x64, 0x69, 0x74, 0x6f, 0x72, 0x2f, 0x6d, 0x65, 0x73, 0x73,
-	0x61, 0x67, 0x65, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x07, 0x0a, 0x03, 0x4a, 0x4f, 0x42, 0x10, 0x01, 0x22, 0x2f, 0x0a, 0x13, 0x47, 0x65, 0x74, 0x4a,
+	0x6f, 0x62, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
+	0x18, 0x0a, 0x07, 0x74, 0x72, 0x61, 0x63, 0x6b, 0x49, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x07, 0x74, 0x72, 0x61, 0x63, 0x6b, 0x49, 0x64, 0x22, 0xfd, 0x02, 0x0a, 0x14, 0x47, 0x65,
+	0x74, 0x4a, 0x6f, 0x62, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x12, 0x4e, 0x0a, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x0e, 0x32, 0x36, 0x2e, 0x67, 0x72, 0x61, 0x70, 0x68, 0x71, 0x6c, 0x65, 0x64, 0x69, 0x74,
+	0x6f, 0x72, 0x2e, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x2e, 0x47, 0x65, 0x74, 0x4a,
+	0x6f, 0x62, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x2e, 0x4a, 0x6f, 0x62, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74,
+	0x75, 0x73, 0x12, 0x4a, 0x0a, 0x06, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x73, 0x18, 0x03, 0x20, 0x03,
+	0x28, 0x0b, 0x32, 0x32, 0x2e, 0x67, 0x72, 0x61, 0x70, 0x68, 0x71, 0x6c, 0x65, 0x64, 0x69, 0x74,
+	0x6f, 0x72, 0x2e, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x2e, 0x47, 0x65, 0x74, 0x4a,
+	0x6f, 0x62, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x2e, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x52, 0x06, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x73, 0x1a, 0x85,
+	0x01, 0x0a, 0x05, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x12, 0x50, 0x0a, 0x04, 0x6b, 0x69, 0x6e, 0x64,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x3c, 0x2e, 0x67, 0x72, 0x61, 0x70, 0x68, 0x71, 0x6c,
+	0x65, 0x64, 0x69, 0x74, 0x6f, 0x72, 0x2e, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x2e,
+	0x47, 0x65, 0x74, 0x4a, 0x6f, 0x62, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x2e, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x2e, 0x45, 0x72, 0x72, 0x6f, 0x72,
+	0x4b, 0x69, 0x6e, 0x64, 0x52, 0x04, 0x6b, 0x69, 0x6e, 0x64, 0x12, 0x10, 0x0a, 0x03, 0x6d, 0x73,
+	0x67, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x6d, 0x73, 0x67, 0x22, 0x18, 0x0a, 0x09,
+	0x45, 0x72, 0x72, 0x6f, 0x72, 0x4b, 0x69, 0x6e, 0x64, 0x12, 0x0b, 0x0a, 0x07, 0x55, 0x4e, 0x4b,
+	0x4e, 0x4f, 0x57, 0x4e, 0x10, 0x00, 0x22, 0x41, 0x0a, 0x09, 0x4a, 0x6f, 0x62, 0x53, 0x74, 0x61,
+	0x74, 0x75, 0x73, 0x12, 0x0c, 0x0a, 0x08, 0x53, 0x54, 0x41, 0x52, 0x54, 0x49, 0x4e, 0x47, 0x10,
+	0x00, 0x12, 0x0b, 0x0a, 0x07, 0x52, 0x55, 0x4e, 0x4e, 0x49, 0x4e, 0x47, 0x10, 0x01, 0x12, 0x0d,
+	0x0a, 0x09, 0x53, 0x55, 0x43, 0x43, 0x45, 0x45, 0x44, 0x45, 0x44, 0x10, 0x02, 0x12, 0x0a, 0x0a,
+	0x06, 0x46, 0x41, 0x49, 0x4c, 0x45, 0x44, 0x10, 0x03, 0x2a, 0x17, 0x0a, 0x07, 0x52, 0x75, 0x6e,
+	0x74, 0x69, 0x6d, 0x65, 0x12, 0x0c, 0x0a, 0x08, 0x4e, 0x4f, 0x44, 0x45, 0x4a, 0x53, 0x31, 0x34,
+	0x10, 0x00, 0x2a, 0x1b, 0x0a, 0x06, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x06, 0x0a, 0x02,
+	0x4f, 0x4b, 0x10, 0x00, 0x12, 0x09, 0x0a, 0x05, 0x45, 0x52, 0x52, 0x4f, 0x52, 0x10, 0x01, 0x2a,
+	0x42, 0x0a, 0x12, 0x52, 0x65, 0x61, 0x64, 0x46, 0x75, 0x6e, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x53,
+	0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x09, 0x0a, 0x05, 0x52, 0x45, 0x41, 0x44, 0x59, 0x10, 0x00,
+	0x12, 0x0f, 0x0a, 0x0b, 0x49, 0x4e, 0x5f, 0x50, 0x52, 0x4f, 0x47, 0x52, 0x45, 0x53, 0x53, 0x10,
+	0x01, 0x12, 0x10, 0x0a, 0x0c, 0x4e, 0x4f, 0x54, 0x5f, 0x44, 0x45, 0x50, 0x4c, 0x4f, 0x59, 0x45,
+	0x44, 0x10, 0x02, 0x42, 0x4e, 0x5a, 0x4c, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f,
+	0x6d, 0x2f, 0x67, 0x72, 0x61, 0x70, 0x68, 0x71, 0x6c, 0x2d, 0x65, 0x64, 0x69, 0x74, 0x6f, 0x72,
+	0x2f, 0x67, 0x72, 0x61, 0x70, 0x68, 0x71, 0x6c, 0x5f, 0x65, 0x64, 0x69, 0x74, 0x6f, 0x72, 0x5f,
+	0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x2f, 0x67, 0x6f, 0x2f, 0x67, 0x72, 0x61, 0x70,
+	0x68, 0x71, 0x6c, 0x2d, 0x65, 0x64, 0x69, 0x74, 0x6f, 0x72, 0x2f, 0x6d, 0x65, 0x73, 0x73, 0x61,
+	0x67, 0x65, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -2335,8 +2336,8 @@ var file_graphql_editor_messages_messages_proto_goTypes = []interface{}{
 	(TextStreamResponse_Error_ErrorKind)(0),     // 8: graphqleditor.messages.TextStreamResponse.Error.ErrorKind
 	(SubscriptionResponse_Error_ErrorKind)(0),   // 9: graphqleditor.messages.SubscriptionResponse.Error.ErrorKind
 	(TextStreamSource_Kind)(0),                  // 10: graphqleditor.messages.TextStreamSource.Kind
-	(JobStatusResponse_JobStatus)(0),            // 11: graphqleditor.messages.JobStatusResponse.JobStatus
-	(JobStatusResponse_Error_ErrorKind)(0),      // 12: graphqleditor.messages.JobStatusResponse.Error.ErrorKind
+	(GetJobStatusResponse_JobStatus)(0),         // 11: graphqleditor.messages.GetJobStatusResponse.JobStatus
+	(GetJobStatusResponse_Error_ErrorKind)(0),   // 12: graphqleditor.messages.GetJobStatusResponse.Error.ErrorKind
 	(*Function)(nil),                            // 13: graphqleditor.messages.Function
 	(*CreateFunctionRequest)(nil),               // 14: graphqleditor.messages.CreateFunctionRequest
 	(*CreateFunctionResponse)(nil),              // 15: graphqleditor.messages.CreateFunctionResponse
@@ -2354,15 +2355,15 @@ var file_graphql_editor_messages_messages_proto_goTypes = []interface{}{
 	(*SubscrptionPayload)(nil),                  // 27: graphqleditor.messages.SubscrptionPayload
 	(*SubscriptionResponse)(nil),                // 28: graphqleditor.messages.SubscriptionResponse
 	(*TextStreamSource)(nil),                    // 29: graphqleditor.messages.TextStreamSource
-	(*JobStatusRequest)(nil),                    // 30: graphqleditor.messages.JobStatusRequest
-	(*JobStatusResponse)(nil),                   // 31: graphqleditor.messages.JobStatusResponse
+	(*GetJobStatusRequest)(nil),                 // 30: graphqleditor.messages.GetJobStatusRequest
+	(*GetJobStatusResponse)(nil),                // 31: graphqleditor.messages.GetJobStatusResponse
 	(*CreateFunctionResponse_Error)(nil),        // 32: graphqleditor.messages.CreateFunctionResponse.Error
 	(*UpdateFunctionResponse_Error)(nil),        // 33: graphqleditor.messages.UpdateFunctionResponse.Error
 	(*DeleteFunctionResponse_Error)(nil),        // 34: graphqleditor.messages.DeleteFunctionResponse.Error
 	(*LogStreamResponse_Error)(nil),             // 35: graphqleditor.messages.LogStreamResponse.Error
 	(*TextStreamResponse_Error)(nil),            // 36: graphqleditor.messages.TextStreamResponse.Error
 	(*SubscriptionResponse_Error)(nil),          // 37: graphqleditor.messages.SubscriptionResponse.Error
-	(*JobStatusResponse_Error)(nil),             // 38: graphqleditor.messages.JobStatusResponse.Error
+	(*GetJobStatusResponse_Error)(nil),          // 38: graphqleditor.messages.GetJobStatusResponse.Error
 	(*messages.Value)(nil),                      // 39: stucco.messages.Value
 }
 var file_graphql_editor_messages_messages_proto_depIdxs = []int32{
@@ -2388,15 +2389,15 @@ var file_graphql_editor_messages_messages_proto_depIdxs = []int32{
 	27, // 19: graphqleditor.messages.SubscriptionResponse.payload:type_name -> graphqleditor.messages.SubscrptionPayload
 	37, // 20: graphqleditor.messages.SubscriptionResponse.errors:type_name -> graphqleditor.messages.SubscriptionResponse.Error
 	10, // 21: graphqleditor.messages.TextStreamSource.kind:type_name -> graphqleditor.messages.TextStreamSource.Kind
-	11, // 22: graphqleditor.messages.JobStatusResponse.status:type_name -> graphqleditor.messages.JobStatusResponse.JobStatus
-	38, // 23: graphqleditor.messages.JobStatusResponse.errors:type_name -> graphqleditor.messages.JobStatusResponse.Error
+	11, // 22: graphqleditor.messages.GetJobStatusResponse.status:type_name -> graphqleditor.messages.GetJobStatusResponse.JobStatus
+	38, // 23: graphqleditor.messages.GetJobStatusResponse.errors:type_name -> graphqleditor.messages.GetJobStatusResponse.Error
 	3,  // 24: graphqleditor.messages.CreateFunctionResponse.Error.kind:type_name -> graphqleditor.messages.CreateFunctionResponse.Error.ErrorKind
 	5,  // 25: graphqleditor.messages.UpdateFunctionResponse.Error.kind:type_name -> graphqleditor.messages.UpdateFunctionResponse.Error.ErrorKind
 	6,  // 26: graphqleditor.messages.DeleteFunctionResponse.Error.kind:type_name -> graphqleditor.messages.DeleteFunctionResponse.Error.ErrorKind
 	7,  // 27: graphqleditor.messages.LogStreamResponse.Error.kind:type_name -> graphqleditor.messages.LogStreamResponse.Error.ErrorKind
 	8,  // 28: graphqleditor.messages.TextStreamResponse.Error.kind:type_name -> graphqleditor.messages.TextStreamResponse.Error.ErrorKind
 	9,  // 29: graphqleditor.messages.SubscriptionResponse.Error.kind:type_name -> graphqleditor.messages.SubscriptionResponse.Error.ErrorKind
-	12, // 30: graphqleditor.messages.JobStatusResponse.Error.kind:type_name -> graphqleditor.messages.JobStatusResponse.Error.ErrorKind
+	12, // 30: graphqleditor.messages.GetJobStatusResponse.Error.kind:type_name -> graphqleditor.messages.GetJobStatusResponse.Error.ErrorKind
 	31, // [31:31] is the sub-list for method output_type
 	31, // [31:31] is the sub-list for method input_type
 	31, // [31:31] is the sub-list for extension type_name
@@ -2615,7 +2616,7 @@ func file_graphql_editor_messages_messages_proto_init() {
 			}
 		}
 		file_graphql_editor_messages_messages_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*JobStatusRequest); i {
+			switch v := v.(*GetJobStatusRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2627,7 +2628,7 @@ func file_graphql_editor_messages_messages_proto_init() {
 			}
 		}
 		file_graphql_editor_messages_messages_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*JobStatusResponse); i {
+			switch v := v.(*GetJobStatusResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2711,7 +2712,7 @@ func file_graphql_editor_messages_messages_proto_init() {
 			}
 		}
 		file_graphql_editor_messages_messages_proto_msgTypes[25].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*JobStatusResponse_Error); i {
+			switch v := v.(*GetJobStatusResponse_Error); i {
 			case 0:
 				return &v.state
 			case 1:

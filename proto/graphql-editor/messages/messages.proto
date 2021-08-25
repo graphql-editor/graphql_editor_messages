@@ -159,11 +159,11 @@ message TextStreamSource {
 	string config = 2;
 }
 
-message JobStatusRequest {
+message GetJobStatusRequest {
 	string trackId = 1;
 }
 
-message JobStatusResponse {
+message GetJobStatusResponse {
 	message Error {
 		enum ErrorKind {
 			UNKNOWN = 0;
