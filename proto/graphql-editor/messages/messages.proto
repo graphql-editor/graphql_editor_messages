@@ -181,3 +181,26 @@ message GetJobStatusResponse {
 	JobStatus job_status = 2;
 	repeated Error errors = 3;
 }
+
+message JobStatusStreamRequest {
+	string trackId = 1;
+}
+
+message JobStatusStreamResponse {
+	message Error {
+		enum ErrorKind {
+			UNKNOWN = 0;
+		}
+		ErrorKind kind = 1;
+		string msg = 2;
+	}
+	enum JobStatus {
+		STARTING = 0;
+		RUNNING = 1;
+		SUCCEEDED = 2;
+		FAILED = 3;
+	}
+	Status status = 1;
+	JobStatus job_status = 2;
+	repeated Error errors = 3;
+}

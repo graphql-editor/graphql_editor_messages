@@ -601,6 +601,101 @@ func (GetJobStatusResponse_Error_ErrorKind) EnumDescriptor() ([]byte, []int) {
 	return file_graphql_editor_messages_messages_proto_rawDescGZIP(), []int{18, 0, 0}
 }
 
+type JobStatusStreamResponse_JobStatus int32
+
+const (
+	JobStatusStreamResponse_STARTING  JobStatusStreamResponse_JobStatus = 0
+	JobStatusStreamResponse_RUNNING   JobStatusStreamResponse_JobStatus = 1
+	JobStatusStreamResponse_SUCCEEDED JobStatusStreamResponse_JobStatus = 2
+	JobStatusStreamResponse_FAILED    JobStatusStreamResponse_JobStatus = 3
+)
+
+// Enum value maps for JobStatusStreamResponse_JobStatus.
+var (
+	JobStatusStreamResponse_JobStatus_name = map[int32]string{
+		0: "STARTING",
+		1: "RUNNING",
+		2: "SUCCEEDED",
+		3: "FAILED",
+	}
+	JobStatusStreamResponse_JobStatus_value = map[string]int32{
+		"STARTING":  0,
+		"RUNNING":   1,
+		"SUCCEEDED": 2,
+		"FAILED":    3,
+	}
+)
+
+func (x JobStatusStreamResponse_JobStatus) Enum() *JobStatusStreamResponse_JobStatus {
+	p := new(JobStatusStreamResponse_JobStatus)
+	*p = x
+	return p
+}
+
+func (x JobStatusStreamResponse_JobStatus) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (JobStatusStreamResponse_JobStatus) Descriptor() protoreflect.EnumDescriptor {
+	return file_graphql_editor_messages_messages_proto_enumTypes[13].Descriptor()
+}
+
+func (JobStatusStreamResponse_JobStatus) Type() protoreflect.EnumType {
+	return &file_graphql_editor_messages_messages_proto_enumTypes[13]
+}
+
+func (x JobStatusStreamResponse_JobStatus) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use JobStatusStreamResponse_JobStatus.Descriptor instead.
+func (JobStatusStreamResponse_JobStatus) EnumDescriptor() ([]byte, []int) {
+	return file_graphql_editor_messages_messages_proto_rawDescGZIP(), []int{20, 0}
+}
+
+type JobStatusStreamResponse_Error_ErrorKind int32
+
+const (
+	JobStatusStreamResponse_Error_UNKNOWN JobStatusStreamResponse_Error_ErrorKind = 0
+)
+
+// Enum value maps for JobStatusStreamResponse_Error_ErrorKind.
+var (
+	JobStatusStreamResponse_Error_ErrorKind_name = map[int32]string{
+		0: "UNKNOWN",
+	}
+	JobStatusStreamResponse_Error_ErrorKind_value = map[string]int32{
+		"UNKNOWN": 0,
+	}
+)
+
+func (x JobStatusStreamResponse_Error_ErrorKind) Enum() *JobStatusStreamResponse_Error_ErrorKind {
+	p := new(JobStatusStreamResponse_Error_ErrorKind)
+	*p = x
+	return p
+}
+
+func (x JobStatusStreamResponse_Error_ErrorKind) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (JobStatusStreamResponse_Error_ErrorKind) Descriptor() protoreflect.EnumDescriptor {
+	return file_graphql_editor_messages_messages_proto_enumTypes[14].Descriptor()
+}
+
+func (JobStatusStreamResponse_Error_ErrorKind) Type() protoreflect.EnumType {
+	return &file_graphql_editor_messages_messages_proto_enumTypes[14]
+}
+
+func (x JobStatusStreamResponse_Error_ErrorKind) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use JobStatusStreamResponse_Error_ErrorKind.Descriptor instead.
+func (JobStatusStreamResponse_Error_ErrorKind) EnumDescriptor() ([]byte, []int) {
+	return file_graphql_editor_messages_messages_proto_rawDescGZIP(), []int{20, 0, 0}
+}
+
 type Function struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -1686,6 +1781,116 @@ func (x *GetJobStatusResponse) GetErrors() []*GetJobStatusResponse_Error {
 	return nil
 }
 
+type JobStatusStreamRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	TrackId string `protobuf:"bytes,1,opt,name=trackId,proto3" json:"trackId,omitempty"`
+}
+
+func (x *JobStatusStreamRequest) Reset() {
+	*x = JobStatusStreamRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_graphql_editor_messages_messages_proto_msgTypes[19]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *JobStatusStreamRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*JobStatusStreamRequest) ProtoMessage() {}
+
+func (x *JobStatusStreamRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_graphql_editor_messages_messages_proto_msgTypes[19]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use JobStatusStreamRequest.ProtoReflect.Descriptor instead.
+func (*JobStatusStreamRequest) Descriptor() ([]byte, []int) {
+	return file_graphql_editor_messages_messages_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *JobStatusStreamRequest) GetTrackId() string {
+	if x != nil {
+		return x.TrackId
+	}
+	return ""
+}
+
+type JobStatusStreamResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Status    Status                            `protobuf:"varint,1,opt,name=status,proto3,enum=graphqleditor.messages.Status" json:"status,omitempty"`
+	JobStatus JobStatusStreamResponse_JobStatus `protobuf:"varint,2,opt,name=job_status,json=jobStatus,proto3,enum=graphqleditor.messages.JobStatusStreamResponse_JobStatus" json:"job_status,omitempty"`
+	Errors    []*JobStatusStreamResponse_Error  `protobuf:"bytes,3,rep,name=errors,proto3" json:"errors,omitempty"`
+}
+
+func (x *JobStatusStreamResponse) Reset() {
+	*x = JobStatusStreamResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_graphql_editor_messages_messages_proto_msgTypes[20]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *JobStatusStreamResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*JobStatusStreamResponse) ProtoMessage() {}
+
+func (x *JobStatusStreamResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_graphql_editor_messages_messages_proto_msgTypes[20]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use JobStatusStreamResponse.ProtoReflect.Descriptor instead.
+func (*JobStatusStreamResponse) Descriptor() ([]byte, []int) {
+	return file_graphql_editor_messages_messages_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *JobStatusStreamResponse) GetStatus() Status {
+	if x != nil {
+		return x.Status
+	}
+	return Status_OK
+}
+
+func (x *JobStatusStreamResponse) GetJobStatus() JobStatusStreamResponse_JobStatus {
+	if x != nil {
+		return x.JobStatus
+	}
+	return JobStatusStreamResponse_STARTING
+}
+
+func (x *JobStatusStreamResponse) GetErrors() []*JobStatusStreamResponse_Error {
+	if x != nil {
+		return x.Errors
+	}
+	return nil
+}
+
 type CreateFunctionResponse_Error struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -1698,7 +1903,7 @@ type CreateFunctionResponse_Error struct {
 func (x *CreateFunctionResponse_Error) Reset() {
 	*x = CreateFunctionResponse_Error{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_graphql_editor_messages_messages_proto_msgTypes[19]
+		mi := &file_graphql_editor_messages_messages_proto_msgTypes[21]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1711,7 +1916,7 @@ func (x *CreateFunctionResponse_Error) String() string {
 func (*CreateFunctionResponse_Error) ProtoMessage() {}
 
 func (x *CreateFunctionResponse_Error) ProtoReflect() protoreflect.Message {
-	mi := &file_graphql_editor_messages_messages_proto_msgTypes[19]
+	mi := &file_graphql_editor_messages_messages_proto_msgTypes[21]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1753,7 +1958,7 @@ type UpdateFunctionResponse_Error struct {
 func (x *UpdateFunctionResponse_Error) Reset() {
 	*x = UpdateFunctionResponse_Error{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_graphql_editor_messages_messages_proto_msgTypes[20]
+		mi := &file_graphql_editor_messages_messages_proto_msgTypes[22]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1766,7 +1971,7 @@ func (x *UpdateFunctionResponse_Error) String() string {
 func (*UpdateFunctionResponse_Error) ProtoMessage() {}
 
 func (x *UpdateFunctionResponse_Error) ProtoReflect() protoreflect.Message {
-	mi := &file_graphql_editor_messages_messages_proto_msgTypes[20]
+	mi := &file_graphql_editor_messages_messages_proto_msgTypes[22]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1808,7 +2013,7 @@ type DeleteFunctionResponse_Error struct {
 func (x *DeleteFunctionResponse_Error) Reset() {
 	*x = DeleteFunctionResponse_Error{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_graphql_editor_messages_messages_proto_msgTypes[21]
+		mi := &file_graphql_editor_messages_messages_proto_msgTypes[23]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1821,7 +2026,7 @@ func (x *DeleteFunctionResponse_Error) String() string {
 func (*DeleteFunctionResponse_Error) ProtoMessage() {}
 
 func (x *DeleteFunctionResponse_Error) ProtoReflect() protoreflect.Message {
-	mi := &file_graphql_editor_messages_messages_proto_msgTypes[21]
+	mi := &file_graphql_editor_messages_messages_proto_msgTypes[23]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1863,7 +2068,7 @@ type LogStreamResponse_Error struct {
 func (x *LogStreamResponse_Error) Reset() {
 	*x = LogStreamResponse_Error{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_graphql_editor_messages_messages_proto_msgTypes[22]
+		mi := &file_graphql_editor_messages_messages_proto_msgTypes[24]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1876,7 +2081,7 @@ func (x *LogStreamResponse_Error) String() string {
 func (*LogStreamResponse_Error) ProtoMessage() {}
 
 func (x *LogStreamResponse_Error) ProtoReflect() protoreflect.Message {
-	mi := &file_graphql_editor_messages_messages_proto_msgTypes[22]
+	mi := &file_graphql_editor_messages_messages_proto_msgTypes[24]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1918,7 +2123,7 @@ type TextStreamResponse_Error struct {
 func (x *TextStreamResponse_Error) Reset() {
 	*x = TextStreamResponse_Error{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_graphql_editor_messages_messages_proto_msgTypes[23]
+		mi := &file_graphql_editor_messages_messages_proto_msgTypes[25]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1931,7 +2136,7 @@ func (x *TextStreamResponse_Error) String() string {
 func (*TextStreamResponse_Error) ProtoMessage() {}
 
 func (x *TextStreamResponse_Error) ProtoReflect() protoreflect.Message {
-	mi := &file_graphql_editor_messages_messages_proto_msgTypes[23]
+	mi := &file_graphql_editor_messages_messages_proto_msgTypes[25]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1973,7 +2178,7 @@ type SubscriptionResponse_Error struct {
 func (x *SubscriptionResponse_Error) Reset() {
 	*x = SubscriptionResponse_Error{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_graphql_editor_messages_messages_proto_msgTypes[24]
+		mi := &file_graphql_editor_messages_messages_proto_msgTypes[26]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1986,7 +2191,7 @@ func (x *SubscriptionResponse_Error) String() string {
 func (*SubscriptionResponse_Error) ProtoMessage() {}
 
 func (x *SubscriptionResponse_Error) ProtoReflect() protoreflect.Message {
-	mi := &file_graphql_editor_messages_messages_proto_msgTypes[24]
+	mi := &file_graphql_editor_messages_messages_proto_msgTypes[26]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2028,7 +2233,7 @@ type GetJobStatusResponse_Error struct {
 func (x *GetJobStatusResponse_Error) Reset() {
 	*x = GetJobStatusResponse_Error{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_graphql_editor_messages_messages_proto_msgTypes[25]
+		mi := &file_graphql_editor_messages_messages_proto_msgTypes[27]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2041,7 +2246,7 @@ func (x *GetJobStatusResponse_Error) String() string {
 func (*GetJobStatusResponse_Error) ProtoMessage() {}
 
 func (x *GetJobStatusResponse_Error) ProtoReflect() protoreflect.Message {
-	mi := &file_graphql_editor_messages_messages_proto_msgTypes[25]
+	mi := &file_graphql_editor_messages_messages_proto_msgTypes[27]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2065,6 +2270,61 @@ func (x *GetJobStatusResponse_Error) GetKind() GetJobStatusResponse_Error_ErrorK
 }
 
 func (x *GetJobStatusResponse_Error) GetMsg() string {
+	if x != nil {
+		return x.Msg
+	}
+	return ""
+}
+
+type JobStatusStreamResponse_Error struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Kind JobStatusStreamResponse_Error_ErrorKind `protobuf:"varint,1,opt,name=kind,proto3,enum=graphqleditor.messages.JobStatusStreamResponse_Error_ErrorKind" json:"kind,omitempty"`
+	Msg  string                                  `protobuf:"bytes,2,opt,name=msg,proto3" json:"msg,omitempty"`
+}
+
+func (x *JobStatusStreamResponse_Error) Reset() {
+	*x = JobStatusStreamResponse_Error{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_graphql_editor_messages_messages_proto_msgTypes[28]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *JobStatusStreamResponse_Error) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*JobStatusStreamResponse_Error) ProtoMessage() {}
+
+func (x *JobStatusStreamResponse_Error) ProtoReflect() protoreflect.Message {
+	mi := &file_graphql_editor_messages_messages_proto_msgTypes[28]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use JobStatusStreamResponse_Error.ProtoReflect.Descriptor instead.
+func (*JobStatusStreamResponse_Error) Descriptor() ([]byte, []int) {
+	return file_graphql_editor_messages_messages_proto_rawDescGZIP(), []int{20, 0}
+}
+
+func (x *JobStatusStreamResponse_Error) GetKind() JobStatusStreamResponse_Error_ErrorKind {
+	if x != nil {
+		return x.Kind
+	}
+	return JobStatusStreamResponse_Error_UNKNOWN
+}
+
+func (x *JobStatusStreamResponse_Error) GetMsg() string {
 	if x != nil {
 		return x.Msg
 	}
@@ -2306,20 +2566,52 @@ var file_graphql_editor_messages_messages_proto_rawDesc = []byte{
 	0x75, 0x73, 0x12, 0x0c, 0x0a, 0x08, 0x53, 0x54, 0x41, 0x52, 0x54, 0x49, 0x4e, 0x47, 0x10, 0x00,
 	0x12, 0x0b, 0x0a, 0x07, 0x52, 0x55, 0x4e, 0x4e, 0x49, 0x4e, 0x47, 0x10, 0x01, 0x12, 0x0d, 0x0a,
 	0x09, 0x53, 0x55, 0x43, 0x43, 0x45, 0x45, 0x44, 0x45, 0x44, 0x10, 0x02, 0x12, 0x0a, 0x0a, 0x06,
-	0x46, 0x41, 0x49, 0x4c, 0x45, 0x44, 0x10, 0x03, 0x2a, 0x17, 0x0a, 0x07, 0x52, 0x75, 0x6e, 0x74,
-	0x69, 0x6d, 0x65, 0x12, 0x0c, 0x0a, 0x08, 0x4e, 0x4f, 0x44, 0x45, 0x4a, 0x53, 0x31, 0x34, 0x10,
-	0x00, 0x2a, 0x1b, 0x0a, 0x06, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x06, 0x0a, 0x02, 0x4f,
-	0x4b, 0x10, 0x00, 0x12, 0x09, 0x0a, 0x05, 0x45, 0x52, 0x52, 0x4f, 0x52, 0x10, 0x01, 0x2a, 0x42,
-	0x0a, 0x12, 0x52, 0x65, 0x61, 0x64, 0x46, 0x75, 0x6e, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x53, 0x74,
-	0x61, 0x74, 0x75, 0x73, 0x12, 0x09, 0x0a, 0x05, 0x52, 0x45, 0x41, 0x44, 0x59, 0x10, 0x00, 0x12,
-	0x0f, 0x0a, 0x0b, 0x49, 0x4e, 0x5f, 0x50, 0x52, 0x4f, 0x47, 0x52, 0x45, 0x53, 0x53, 0x10, 0x01,
-	0x12, 0x10, 0x0a, 0x0c, 0x4e, 0x4f, 0x54, 0x5f, 0x44, 0x45, 0x50, 0x4c, 0x4f, 0x59, 0x45, 0x44,
-	0x10, 0x02, 0x42, 0x4e, 0x5a, 0x4c, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d,
-	0x2f, 0x67, 0x72, 0x61, 0x70, 0x68, 0x71, 0x6c, 0x2d, 0x65, 0x64, 0x69, 0x74, 0x6f, 0x72, 0x2f,
-	0x67, 0x72, 0x61, 0x70, 0x68, 0x71, 0x6c, 0x5f, 0x65, 0x64, 0x69, 0x74, 0x6f, 0x72, 0x5f, 0x6d,
-	0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x2f, 0x67, 0x6f, 0x2f, 0x67, 0x72, 0x61, 0x70, 0x68,
-	0x71, 0x6c, 0x2d, 0x65, 0x64, 0x69, 0x74, 0x6f, 0x72, 0x2f, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67,
-	0x65, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x46, 0x41, 0x49, 0x4c, 0x45, 0x44, 0x10, 0x03, 0x22, 0x32, 0x0a, 0x16, 0x4a, 0x6f, 0x62, 0x53,
+	0x74, 0x61, 0x74, 0x75, 0x73, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x12, 0x18, 0x0a, 0x07, 0x74, 0x72, 0x61, 0x63, 0x6b, 0x49, 0x64, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x07, 0x74, 0x72, 0x61, 0x63, 0x6b, 0x49, 0x64, 0x22, 0xc8, 0x03, 0x0a,
+	0x17, 0x4a, 0x6f, 0x62, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x36, 0x0a, 0x06, 0x73, 0x74, 0x61, 0x74,
+	0x75, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x1e, 0x2e, 0x67, 0x72, 0x61, 0x70, 0x68,
+	0x71, 0x6c, 0x65, 0x64, 0x69, 0x74, 0x6f, 0x72, 0x2e, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65,
+	0x73, 0x2e, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73,
+	0x12, 0x58, 0x0a, 0x0a, 0x6a, 0x6f, 0x62, 0x5f, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x02,
+	0x20, 0x01, 0x28, 0x0e, 0x32, 0x39, 0x2e, 0x67, 0x72, 0x61, 0x70, 0x68, 0x71, 0x6c, 0x65, 0x64,
+	0x69, 0x74, 0x6f, 0x72, 0x2e, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x2e, 0x4a, 0x6f,
+	0x62, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x2e, 0x4a, 0x6f, 0x62, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52,
+	0x09, 0x6a, 0x6f, 0x62, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x4d, 0x0a, 0x06, 0x65, 0x72,
+	0x72, 0x6f, 0x72, 0x73, 0x18, 0x03, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x35, 0x2e, 0x67, 0x72, 0x61,
+	0x70, 0x68, 0x71, 0x6c, 0x65, 0x64, 0x69, 0x74, 0x6f, 0x72, 0x2e, 0x6d, 0x65, 0x73, 0x73, 0x61,
+	0x67, 0x65, 0x73, 0x2e, 0x4a, 0x6f, 0x62, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x53, 0x74, 0x72,
+	0x65, 0x61, 0x6d, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x2e, 0x45, 0x72, 0x72, 0x6f,
+	0x72, 0x52, 0x06, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x73, 0x1a, 0x88, 0x01, 0x0a, 0x05, 0x45, 0x72,
+	0x72, 0x6f, 0x72, 0x12, 0x53, 0x0a, 0x04, 0x6b, 0x69, 0x6e, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x0e, 0x32, 0x3f, 0x2e, 0x67, 0x72, 0x61, 0x70, 0x68, 0x71, 0x6c, 0x65, 0x64, 0x69, 0x74, 0x6f,
+	0x72, 0x2e, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x2e, 0x4a, 0x6f, 0x62, 0x53, 0x74,
+	0x61, 0x74, 0x75, 0x73, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x2e, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x2e, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x4b, 0x69,
+	0x6e, 0x64, 0x52, 0x04, 0x6b, 0x69, 0x6e, 0x64, 0x12, 0x10, 0x0a, 0x03, 0x6d, 0x73, 0x67, 0x18,
+	0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x6d, 0x73, 0x67, 0x22, 0x18, 0x0a, 0x09, 0x45, 0x72,
+	0x72, 0x6f, 0x72, 0x4b, 0x69, 0x6e, 0x64, 0x12, 0x0b, 0x0a, 0x07, 0x55, 0x4e, 0x4b, 0x4e, 0x4f,
+	0x57, 0x4e, 0x10, 0x00, 0x22, 0x41, 0x0a, 0x09, 0x4a, 0x6f, 0x62, 0x53, 0x74, 0x61, 0x74, 0x75,
+	0x73, 0x12, 0x0c, 0x0a, 0x08, 0x53, 0x54, 0x41, 0x52, 0x54, 0x49, 0x4e, 0x47, 0x10, 0x00, 0x12,
+	0x0b, 0x0a, 0x07, 0x52, 0x55, 0x4e, 0x4e, 0x49, 0x4e, 0x47, 0x10, 0x01, 0x12, 0x0d, 0x0a, 0x09,
+	0x53, 0x55, 0x43, 0x43, 0x45, 0x45, 0x44, 0x45, 0x44, 0x10, 0x02, 0x12, 0x0a, 0x0a, 0x06, 0x46,
+	0x41, 0x49, 0x4c, 0x45, 0x44, 0x10, 0x03, 0x2a, 0x17, 0x0a, 0x07, 0x52, 0x75, 0x6e, 0x74, 0x69,
+	0x6d, 0x65, 0x12, 0x0c, 0x0a, 0x08, 0x4e, 0x4f, 0x44, 0x45, 0x4a, 0x53, 0x31, 0x34, 0x10, 0x00,
+	0x2a, 0x1b, 0x0a, 0x06, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x06, 0x0a, 0x02, 0x4f, 0x4b,
+	0x10, 0x00, 0x12, 0x09, 0x0a, 0x05, 0x45, 0x52, 0x52, 0x4f, 0x52, 0x10, 0x01, 0x2a, 0x42, 0x0a,
+	0x12, 0x52, 0x65, 0x61, 0x64, 0x46, 0x75, 0x6e, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x53, 0x74, 0x61,
+	0x74, 0x75, 0x73, 0x12, 0x09, 0x0a, 0x05, 0x52, 0x45, 0x41, 0x44, 0x59, 0x10, 0x00, 0x12, 0x0f,
+	0x0a, 0x0b, 0x49, 0x4e, 0x5f, 0x50, 0x52, 0x4f, 0x47, 0x52, 0x45, 0x53, 0x53, 0x10, 0x01, 0x12,
+	0x10, 0x0a, 0x0c, 0x4e, 0x4f, 0x54, 0x5f, 0x44, 0x45, 0x50, 0x4c, 0x4f, 0x59, 0x45, 0x44, 0x10,
+	0x02, 0x42, 0x4e, 0x5a, 0x4c, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f,
+	0x67, 0x72, 0x61, 0x70, 0x68, 0x71, 0x6c, 0x2d, 0x65, 0x64, 0x69, 0x74, 0x6f, 0x72, 0x2f, 0x67,
+	0x72, 0x61, 0x70, 0x68, 0x71, 0x6c, 0x5f, 0x65, 0x64, 0x69, 0x74, 0x6f, 0x72, 0x5f, 0x6d, 0x65,
+	0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x2f, 0x67, 0x6f, 0x2f, 0x67, 0x72, 0x61, 0x70, 0x68, 0x71,
+	0x6c, 0x2d, 0x65, 0x64, 0x69, 0x74, 0x6f, 0x72, 0x2f, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65,
+	0x73, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -2334,88 +2626,97 @@ func file_graphql_editor_messages_messages_proto_rawDescGZIP() []byte {
 	return file_graphql_editor_messages_messages_proto_rawDescData
 }
 
-var file_graphql_editor_messages_messages_proto_enumTypes = make([]protoimpl.EnumInfo, 13)
-var file_graphql_editor_messages_messages_proto_msgTypes = make([]protoimpl.MessageInfo, 26)
+var file_graphql_editor_messages_messages_proto_enumTypes = make([]protoimpl.EnumInfo, 15)
+var file_graphql_editor_messages_messages_proto_msgTypes = make([]protoimpl.MessageInfo, 29)
 var file_graphql_editor_messages_messages_proto_goTypes = []interface{}{
 	(Runtime)(0),            // 0: graphqleditor.messages.Runtime
 	(Status)(0),             // 1: graphqleditor.messages.Status
 	(ReadFunctionStatus)(0), // 2: graphqleditor.messages.ReadFunctionStatus
-	(CreateFunctionResponse_Error_ErrorKind)(0), // 3: graphqleditor.messages.CreateFunctionResponse.Error.ErrorKind
-	(UpdateFunctionRequest_EnvType)(0),          // 4: graphqleditor.messages.UpdateFunctionRequest.EnvType
-	(UpdateFunctionResponse_Error_ErrorKind)(0), // 5: graphqleditor.messages.UpdateFunctionResponse.Error.ErrorKind
-	(DeleteFunctionResponse_Error_ErrorKind)(0), // 6: graphqleditor.messages.DeleteFunctionResponse.Error.ErrorKind
-	(LogStreamResponse_Error_ErrorKind)(0),      // 7: graphqleditor.messages.LogStreamResponse.Error.ErrorKind
-	(TextStreamResponse_Error_ErrorKind)(0),     // 8: graphqleditor.messages.TextStreamResponse.Error.ErrorKind
-	(SubscriptionResponse_Error_ErrorKind)(0),   // 9: graphqleditor.messages.SubscriptionResponse.Error.ErrorKind
-	(TextStreamSource_Kind)(0),                  // 10: graphqleditor.messages.TextStreamSource.Kind
-	(GetJobStatusResponse_JobStatus)(0),         // 11: graphqleditor.messages.GetJobStatusResponse.JobStatus
-	(GetJobStatusResponse_Error_ErrorKind)(0),   // 12: graphqleditor.messages.GetJobStatusResponse.Error.ErrorKind
-	(*Function)(nil),                            // 13: graphqleditor.messages.Function
-	(*CreateFunctionRequest)(nil),               // 14: graphqleditor.messages.CreateFunctionRequest
-	(*CreateFunctionResponse)(nil),              // 15: graphqleditor.messages.CreateFunctionResponse
-	(*ReadFunctionRequest)(nil),                 // 16: graphqleditor.messages.ReadFunctionRequest
-	(*ReadFunctionResponse)(nil),                // 17: graphqleditor.messages.ReadFunctionResponse
-	(*UpdateFunctionRequest)(nil),               // 18: graphqleditor.messages.UpdateFunctionRequest
-	(*UpdateFunctionResponse)(nil),              // 19: graphqleditor.messages.UpdateFunctionResponse
-	(*DeleteFunctionRequest)(nil),               // 20: graphqleditor.messages.DeleteFunctionRequest
-	(*DeleteFunctionResponse)(nil),              // 21: graphqleditor.messages.DeleteFunctionResponse
-	(*LogStreamRequest)(nil),                    // 22: graphqleditor.messages.LogStreamRequest
-	(*LogStreamResponse)(nil),                   // 23: graphqleditor.messages.LogStreamResponse
-	(*TextStreamRequest)(nil),                   // 24: graphqleditor.messages.TextStreamRequest
-	(*TextStreamResponse)(nil),                  // 25: graphqleditor.messages.TextStreamResponse
-	(*SubscriptionRequest)(nil),                 // 26: graphqleditor.messages.SubscriptionRequest
-	(*SubscrptionPayload)(nil),                  // 27: graphqleditor.messages.SubscrptionPayload
-	(*SubscriptionResponse)(nil),                // 28: graphqleditor.messages.SubscriptionResponse
-	(*TextStreamSource)(nil),                    // 29: graphqleditor.messages.TextStreamSource
-	(*GetJobStatusRequest)(nil),                 // 30: graphqleditor.messages.GetJobStatusRequest
-	(*GetJobStatusResponse)(nil),                // 31: graphqleditor.messages.GetJobStatusResponse
-	(*CreateFunctionResponse_Error)(nil),        // 32: graphqleditor.messages.CreateFunctionResponse.Error
-	(*UpdateFunctionResponse_Error)(nil),        // 33: graphqleditor.messages.UpdateFunctionResponse.Error
-	(*DeleteFunctionResponse_Error)(nil),        // 34: graphqleditor.messages.DeleteFunctionResponse.Error
-	(*LogStreamResponse_Error)(nil),             // 35: graphqleditor.messages.LogStreamResponse.Error
-	(*TextStreamResponse_Error)(nil),            // 36: graphqleditor.messages.TextStreamResponse.Error
-	(*SubscriptionResponse_Error)(nil),          // 37: graphqleditor.messages.SubscriptionResponse.Error
-	(*GetJobStatusResponse_Error)(nil),          // 38: graphqleditor.messages.GetJobStatusResponse.Error
-	(*messages.Value)(nil),                      // 39: stucco.messages.Value
+	(CreateFunctionResponse_Error_ErrorKind)(0),  // 3: graphqleditor.messages.CreateFunctionResponse.Error.ErrorKind
+	(UpdateFunctionRequest_EnvType)(0),           // 4: graphqleditor.messages.UpdateFunctionRequest.EnvType
+	(UpdateFunctionResponse_Error_ErrorKind)(0),  // 5: graphqleditor.messages.UpdateFunctionResponse.Error.ErrorKind
+	(DeleteFunctionResponse_Error_ErrorKind)(0),  // 6: graphqleditor.messages.DeleteFunctionResponse.Error.ErrorKind
+	(LogStreamResponse_Error_ErrorKind)(0),       // 7: graphqleditor.messages.LogStreamResponse.Error.ErrorKind
+	(TextStreamResponse_Error_ErrorKind)(0),      // 8: graphqleditor.messages.TextStreamResponse.Error.ErrorKind
+	(SubscriptionResponse_Error_ErrorKind)(0),    // 9: graphqleditor.messages.SubscriptionResponse.Error.ErrorKind
+	(TextStreamSource_Kind)(0),                   // 10: graphqleditor.messages.TextStreamSource.Kind
+	(GetJobStatusResponse_JobStatus)(0),          // 11: graphqleditor.messages.GetJobStatusResponse.JobStatus
+	(GetJobStatusResponse_Error_ErrorKind)(0),    // 12: graphqleditor.messages.GetJobStatusResponse.Error.ErrorKind
+	(JobStatusStreamResponse_JobStatus)(0),       // 13: graphqleditor.messages.JobStatusStreamResponse.JobStatus
+	(JobStatusStreamResponse_Error_ErrorKind)(0), // 14: graphqleditor.messages.JobStatusStreamResponse.Error.ErrorKind
+	(*Function)(nil),                             // 15: graphqleditor.messages.Function
+	(*CreateFunctionRequest)(nil),                // 16: graphqleditor.messages.CreateFunctionRequest
+	(*CreateFunctionResponse)(nil),               // 17: graphqleditor.messages.CreateFunctionResponse
+	(*ReadFunctionRequest)(nil),                  // 18: graphqleditor.messages.ReadFunctionRequest
+	(*ReadFunctionResponse)(nil),                 // 19: graphqleditor.messages.ReadFunctionResponse
+	(*UpdateFunctionRequest)(nil),                // 20: graphqleditor.messages.UpdateFunctionRequest
+	(*UpdateFunctionResponse)(nil),               // 21: graphqleditor.messages.UpdateFunctionResponse
+	(*DeleteFunctionRequest)(nil),                // 22: graphqleditor.messages.DeleteFunctionRequest
+	(*DeleteFunctionResponse)(nil),               // 23: graphqleditor.messages.DeleteFunctionResponse
+	(*LogStreamRequest)(nil),                     // 24: graphqleditor.messages.LogStreamRequest
+	(*LogStreamResponse)(nil),                    // 25: graphqleditor.messages.LogStreamResponse
+	(*TextStreamRequest)(nil),                    // 26: graphqleditor.messages.TextStreamRequest
+	(*TextStreamResponse)(nil),                   // 27: graphqleditor.messages.TextStreamResponse
+	(*SubscriptionRequest)(nil),                  // 28: graphqleditor.messages.SubscriptionRequest
+	(*SubscrptionPayload)(nil),                   // 29: graphqleditor.messages.SubscrptionPayload
+	(*SubscriptionResponse)(nil),                 // 30: graphqleditor.messages.SubscriptionResponse
+	(*TextStreamSource)(nil),                     // 31: graphqleditor.messages.TextStreamSource
+	(*GetJobStatusRequest)(nil),                  // 32: graphqleditor.messages.GetJobStatusRequest
+	(*GetJobStatusResponse)(nil),                 // 33: graphqleditor.messages.GetJobStatusResponse
+	(*JobStatusStreamRequest)(nil),               // 34: graphqleditor.messages.JobStatusStreamRequest
+	(*JobStatusStreamResponse)(nil),              // 35: graphqleditor.messages.JobStatusStreamResponse
+	(*CreateFunctionResponse_Error)(nil),         // 36: graphqleditor.messages.CreateFunctionResponse.Error
+	(*UpdateFunctionResponse_Error)(nil),         // 37: graphqleditor.messages.UpdateFunctionResponse.Error
+	(*DeleteFunctionResponse_Error)(nil),         // 38: graphqleditor.messages.DeleteFunctionResponse.Error
+	(*LogStreamResponse_Error)(nil),              // 39: graphqleditor.messages.LogStreamResponse.Error
+	(*TextStreamResponse_Error)(nil),             // 40: graphqleditor.messages.TextStreamResponse.Error
+	(*SubscriptionResponse_Error)(nil),           // 41: graphqleditor.messages.SubscriptionResponse.Error
+	(*GetJobStatusResponse_Error)(nil),           // 42: graphqleditor.messages.GetJobStatusResponse.Error
+	(*JobStatusStreamResponse_Error)(nil),        // 43: graphqleditor.messages.JobStatusStreamResponse.Error
+	(*messages.Value)(nil),                       // 44: stucco.messages.Value
 }
 var file_graphql_editor_messages_messages_proto_depIdxs = []int32{
-	13, // 0: graphqleditor.messages.CreateFunctionRequest.function:type_name -> graphqleditor.messages.Function
+	15, // 0: graphqleditor.messages.CreateFunctionRequest.function:type_name -> graphqleditor.messages.Function
 	1,  // 1: graphqleditor.messages.CreateFunctionResponse.status:type_name -> graphqleditor.messages.Status
-	32, // 2: graphqleditor.messages.CreateFunctionResponse.errors:type_name -> graphqleditor.messages.CreateFunctionResponse.Error
-	13, // 3: graphqleditor.messages.ReadFunctionRequest.function:type_name -> graphqleditor.messages.Function
+	36, // 2: graphqleditor.messages.CreateFunctionResponse.errors:type_name -> graphqleditor.messages.CreateFunctionResponse.Error
+	15, // 3: graphqleditor.messages.ReadFunctionRequest.function:type_name -> graphqleditor.messages.Function
 	2,  // 4: graphqleditor.messages.ReadFunctionResponse.status:type_name -> graphqleditor.messages.ReadFunctionStatus
-	13, // 5: graphqleditor.messages.UpdateFunctionRequest.function:type_name -> graphqleditor.messages.Function
+	15, // 5: graphqleditor.messages.UpdateFunctionRequest.function:type_name -> graphqleditor.messages.Function
 	4,  // 6: graphqleditor.messages.UpdateFunctionRequest.envType:type_name -> graphqleditor.messages.UpdateFunctionRequest.EnvType
 	1,  // 7: graphqleditor.messages.UpdateFunctionResponse.status:type_name -> graphqleditor.messages.Status
-	33, // 8: graphqleditor.messages.UpdateFunctionResponse.errors:type_name -> graphqleditor.messages.UpdateFunctionResponse.Error
-	13, // 9: graphqleditor.messages.DeleteFunctionRequest.function:type_name -> graphqleditor.messages.Function
+	37, // 8: graphqleditor.messages.UpdateFunctionResponse.errors:type_name -> graphqleditor.messages.UpdateFunctionResponse.Error
+	15, // 9: graphqleditor.messages.DeleteFunctionRequest.function:type_name -> graphqleditor.messages.Function
 	1,  // 10: graphqleditor.messages.DeleteFunctionResponse.status:type_name -> graphqleditor.messages.Status
-	34, // 11: graphqleditor.messages.DeleteFunctionResponse.errors:type_name -> graphqleditor.messages.DeleteFunctionResponse.Error
-	13, // 12: graphqleditor.messages.LogStreamRequest.function:type_name -> graphqleditor.messages.Function
+	38, // 11: graphqleditor.messages.DeleteFunctionResponse.errors:type_name -> graphqleditor.messages.DeleteFunctionResponse.Error
+	15, // 12: graphqleditor.messages.LogStreamRequest.function:type_name -> graphqleditor.messages.Function
 	1,  // 13: graphqleditor.messages.LogStreamResponse.status:type_name -> graphqleditor.messages.Status
-	35, // 14: graphqleditor.messages.LogStreamResponse.errors:type_name -> graphqleditor.messages.LogStreamResponse.Error
+	39, // 14: graphqleditor.messages.LogStreamResponse.errors:type_name -> graphqleditor.messages.LogStreamResponse.Error
 	1,  // 15: graphqleditor.messages.TextStreamResponse.status:type_name -> graphqleditor.messages.Status
-	36, // 16: graphqleditor.messages.TextStreamResponse.errors:type_name -> graphqleditor.messages.TextStreamResponse.Error
-	39, // 17: graphqleditor.messages.SubscrptionPayload.data:type_name -> stucco.messages.Value
-	39, // 18: graphqleditor.messages.SubscrptionPayload.errors:type_name -> stucco.messages.Value
-	27, // 19: graphqleditor.messages.SubscriptionResponse.payload:type_name -> graphqleditor.messages.SubscrptionPayload
-	37, // 20: graphqleditor.messages.SubscriptionResponse.errors:type_name -> graphqleditor.messages.SubscriptionResponse.Error
+	40, // 16: graphqleditor.messages.TextStreamResponse.errors:type_name -> graphqleditor.messages.TextStreamResponse.Error
+	44, // 17: graphqleditor.messages.SubscrptionPayload.data:type_name -> stucco.messages.Value
+	44, // 18: graphqleditor.messages.SubscrptionPayload.errors:type_name -> stucco.messages.Value
+	29, // 19: graphqleditor.messages.SubscriptionResponse.payload:type_name -> graphqleditor.messages.SubscrptionPayload
+	41, // 20: graphqleditor.messages.SubscriptionResponse.errors:type_name -> graphqleditor.messages.SubscriptionResponse.Error
 	10, // 21: graphqleditor.messages.TextStreamSource.kind:type_name -> graphqleditor.messages.TextStreamSource.Kind
 	1,  // 22: graphqleditor.messages.GetJobStatusResponse.status:type_name -> graphqleditor.messages.Status
 	11, // 23: graphqleditor.messages.GetJobStatusResponse.job_status:type_name -> graphqleditor.messages.GetJobStatusResponse.JobStatus
-	38, // 24: graphqleditor.messages.GetJobStatusResponse.errors:type_name -> graphqleditor.messages.GetJobStatusResponse.Error
-	3,  // 25: graphqleditor.messages.CreateFunctionResponse.Error.kind:type_name -> graphqleditor.messages.CreateFunctionResponse.Error.ErrorKind
-	5,  // 26: graphqleditor.messages.UpdateFunctionResponse.Error.kind:type_name -> graphqleditor.messages.UpdateFunctionResponse.Error.ErrorKind
-	6,  // 27: graphqleditor.messages.DeleteFunctionResponse.Error.kind:type_name -> graphqleditor.messages.DeleteFunctionResponse.Error.ErrorKind
-	7,  // 28: graphqleditor.messages.LogStreamResponse.Error.kind:type_name -> graphqleditor.messages.LogStreamResponse.Error.ErrorKind
-	8,  // 29: graphqleditor.messages.TextStreamResponse.Error.kind:type_name -> graphqleditor.messages.TextStreamResponse.Error.ErrorKind
-	9,  // 30: graphqleditor.messages.SubscriptionResponse.Error.kind:type_name -> graphqleditor.messages.SubscriptionResponse.Error.ErrorKind
-	12, // 31: graphqleditor.messages.GetJobStatusResponse.Error.kind:type_name -> graphqleditor.messages.GetJobStatusResponse.Error.ErrorKind
-	32, // [32:32] is the sub-list for method output_type
-	32, // [32:32] is the sub-list for method input_type
-	32, // [32:32] is the sub-list for extension type_name
-	32, // [32:32] is the sub-list for extension extendee
-	0,  // [0:32] is the sub-list for field type_name
+	42, // 24: graphqleditor.messages.GetJobStatusResponse.errors:type_name -> graphqleditor.messages.GetJobStatusResponse.Error
+	1,  // 25: graphqleditor.messages.JobStatusStreamResponse.status:type_name -> graphqleditor.messages.Status
+	13, // 26: graphqleditor.messages.JobStatusStreamResponse.job_status:type_name -> graphqleditor.messages.JobStatusStreamResponse.JobStatus
+	43, // 27: graphqleditor.messages.JobStatusStreamResponse.errors:type_name -> graphqleditor.messages.JobStatusStreamResponse.Error
+	3,  // 28: graphqleditor.messages.CreateFunctionResponse.Error.kind:type_name -> graphqleditor.messages.CreateFunctionResponse.Error.ErrorKind
+	5,  // 29: graphqleditor.messages.UpdateFunctionResponse.Error.kind:type_name -> graphqleditor.messages.UpdateFunctionResponse.Error.ErrorKind
+	6,  // 30: graphqleditor.messages.DeleteFunctionResponse.Error.kind:type_name -> graphqleditor.messages.DeleteFunctionResponse.Error.ErrorKind
+	7,  // 31: graphqleditor.messages.LogStreamResponse.Error.kind:type_name -> graphqleditor.messages.LogStreamResponse.Error.ErrorKind
+	8,  // 32: graphqleditor.messages.TextStreamResponse.Error.kind:type_name -> graphqleditor.messages.TextStreamResponse.Error.ErrorKind
+	9,  // 33: graphqleditor.messages.SubscriptionResponse.Error.kind:type_name -> graphqleditor.messages.SubscriptionResponse.Error.ErrorKind
+	12, // 34: graphqleditor.messages.GetJobStatusResponse.Error.kind:type_name -> graphqleditor.messages.GetJobStatusResponse.Error.ErrorKind
+	14, // 35: graphqleditor.messages.JobStatusStreamResponse.Error.kind:type_name -> graphqleditor.messages.JobStatusStreamResponse.Error.ErrorKind
+	36, // [36:36] is the sub-list for method output_type
+	36, // [36:36] is the sub-list for method input_type
+	36, // [36:36] is the sub-list for extension type_name
+	36, // [36:36] is the sub-list for extension extendee
+	0,  // [0:36] is the sub-list for field type_name
 }
 
 func init() { file_graphql_editor_messages_messages_proto_init() }
@@ -2653,7 +2954,7 @@ func file_graphql_editor_messages_messages_proto_init() {
 			}
 		}
 		file_graphql_editor_messages_messages_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreateFunctionResponse_Error); i {
+			switch v := v.(*JobStatusStreamRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2665,7 +2966,7 @@ func file_graphql_editor_messages_messages_proto_init() {
 			}
 		}
 		file_graphql_editor_messages_messages_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateFunctionResponse_Error); i {
+			switch v := v.(*JobStatusStreamResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2677,7 +2978,7 @@ func file_graphql_editor_messages_messages_proto_init() {
 			}
 		}
 		file_graphql_editor_messages_messages_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteFunctionResponse_Error); i {
+			switch v := v.(*CreateFunctionResponse_Error); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2689,7 +2990,7 @@ func file_graphql_editor_messages_messages_proto_init() {
 			}
 		}
 		file_graphql_editor_messages_messages_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*LogStreamResponse_Error); i {
+			switch v := v.(*UpdateFunctionResponse_Error); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2701,7 +3002,7 @@ func file_graphql_editor_messages_messages_proto_init() {
 			}
 		}
 		file_graphql_editor_messages_messages_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*TextStreamResponse_Error); i {
+			switch v := v.(*DeleteFunctionResponse_Error); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2713,7 +3014,7 @@ func file_graphql_editor_messages_messages_proto_init() {
 			}
 		}
 		file_graphql_editor_messages_messages_proto_msgTypes[24].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*SubscriptionResponse_Error); i {
+			switch v := v.(*LogStreamResponse_Error); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2725,7 +3026,43 @@ func file_graphql_editor_messages_messages_proto_init() {
 			}
 		}
 		file_graphql_editor_messages_messages_proto_msgTypes[25].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*TextStreamResponse_Error); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_graphql_editor_messages_messages_proto_msgTypes[26].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SubscriptionResponse_Error); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_graphql_editor_messages_messages_proto_msgTypes[27].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetJobStatusResponse_Error); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_graphql_editor_messages_messages_proto_msgTypes[28].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*JobStatusStreamResponse_Error); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2742,8 +3079,8 @@ func file_graphql_editor_messages_messages_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_graphql_editor_messages_messages_proto_rawDesc,
-			NumEnums:      13,
-			NumMessages:   26,
+			NumEnums:      15,
+			NumMessages:   29,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

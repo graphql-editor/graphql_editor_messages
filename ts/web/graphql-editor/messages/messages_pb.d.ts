@@ -684,6 +684,86 @@ export namespace GetJobStatusResponse {
   }
 }
 
+export class JobStatusStreamRequest extends jspb.Message {
+  getTrackid(): string;
+  setTrackid(value: string): JobStatusStreamRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): JobStatusStreamRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: JobStatusStreamRequest): JobStatusStreamRequest.AsObject;
+  static serializeBinaryToWriter(message: JobStatusStreamRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): JobStatusStreamRequest;
+  static deserializeBinaryFromReader(message: JobStatusStreamRequest, reader: jspb.BinaryReader): JobStatusStreamRequest;
+}
+
+export namespace JobStatusStreamRequest {
+  export type AsObject = {
+    trackid: string,
+  }
+}
+
+export class JobStatusStreamResponse extends jspb.Message {
+  getStatus(): Status;
+  setStatus(value: Status): JobStatusStreamResponse;
+
+  getJobStatus(): JobStatusStreamResponse.JobStatus;
+  setJobStatus(value: JobStatusStreamResponse.JobStatus): JobStatusStreamResponse;
+
+  getErrorsList(): Array<JobStatusStreamResponse.Error>;
+  setErrorsList(value: Array<JobStatusStreamResponse.Error>): JobStatusStreamResponse;
+  clearErrorsList(): JobStatusStreamResponse;
+  addErrors(value?: JobStatusStreamResponse.Error, index?: number): JobStatusStreamResponse.Error;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): JobStatusStreamResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: JobStatusStreamResponse): JobStatusStreamResponse.AsObject;
+  static serializeBinaryToWriter(message: JobStatusStreamResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): JobStatusStreamResponse;
+  static deserializeBinaryFromReader(message: JobStatusStreamResponse, reader: jspb.BinaryReader): JobStatusStreamResponse;
+}
+
+export namespace JobStatusStreamResponse {
+  export type AsObject = {
+    status: Status,
+    jobStatus: JobStatusStreamResponse.JobStatus,
+    errorsList: Array<JobStatusStreamResponse.Error.AsObject>,
+  }
+
+  export class Error extends jspb.Message {
+    getKind(): JobStatusStreamResponse.Error.ErrorKind;
+    setKind(value: JobStatusStreamResponse.Error.ErrorKind): Error;
+
+    getMsg(): string;
+    setMsg(value: string): Error;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): Error.AsObject;
+    static toObject(includeInstance: boolean, msg: Error): Error.AsObject;
+    static serializeBinaryToWriter(message: Error, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): Error;
+    static deserializeBinaryFromReader(message: Error, reader: jspb.BinaryReader): Error;
+  }
+
+  export namespace Error {
+    export type AsObject = {
+      kind: JobStatusStreamResponse.Error.ErrorKind,
+      msg: string,
+    }
+
+    export enum ErrorKind { 
+      UNKNOWN = 0,
+    }
+  }
+
+
+  export enum JobStatus { 
+    STARTING = 0,
+    RUNNING = 1,
+    SUCCEEDED = 2,
+    FAILED = 3,
+  }
+}
+
 export enum Runtime { 
   NODEJS14 = 0,
 }
