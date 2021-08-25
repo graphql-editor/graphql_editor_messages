@@ -5,7 +5,7 @@
 /* eslint-disable */
 
 import * as jspb from "google-protobuf";
-import * as stucco_ts_proto_gen_proto_messages_messages_pb from "../stucco-ts-proto-gen/dist/ts/node/messages/messages_pb";
+import * as stucco_ts_proto_gen_proto_messages_messages_pb from "../../stucco-ts-proto-gen/proto/messages/messages_pb";
 
 export class Function extends jspb.Message { 
     getId(): string;
@@ -643,6 +643,89 @@ export namespace TextStreamSource {
     export enum Kind {
     FUNCTION = 0,
     JOB = 1,
+    }
+
+}
+
+export class JobStatusRequest extends jspb.Message { 
+    getTrackid(): string;
+    setTrackid(value: string): JobStatusRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): JobStatusRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: JobStatusRequest): JobStatusRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: JobStatusRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): JobStatusRequest;
+    static deserializeBinaryFromReader(message: JobStatusRequest, reader: jspb.BinaryReader): JobStatusRequest;
+}
+
+export namespace JobStatusRequest {
+    export type AsObject = {
+        trackid: string,
+    }
+}
+
+export class JobStatusResponse extends jspb.Message { 
+    getStatus(): JobStatusResponse.JobStatus;
+    setStatus(value: JobStatusResponse.JobStatus): JobStatusResponse;
+    clearErrorsList(): void;
+    getErrorsList(): Array<JobStatusResponse.Error>;
+    setErrorsList(value: Array<JobStatusResponse.Error>): JobStatusResponse;
+    addErrors(value?: JobStatusResponse.Error, index?: number): JobStatusResponse.Error;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): JobStatusResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: JobStatusResponse): JobStatusResponse.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: JobStatusResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): JobStatusResponse;
+    static deserializeBinaryFromReader(message: JobStatusResponse, reader: jspb.BinaryReader): JobStatusResponse;
+}
+
+export namespace JobStatusResponse {
+    export type AsObject = {
+        status: JobStatusResponse.JobStatus,
+        errorsList: Array<JobStatusResponse.Error.AsObject>,
+    }
+
+
+    export class Error extends jspb.Message { 
+        getKind(): JobStatusResponse.Error.ErrorKind;
+        setKind(value: JobStatusResponse.Error.ErrorKind): Error;
+        getMsg(): string;
+        setMsg(value: string): Error;
+
+        serializeBinary(): Uint8Array;
+        toObject(includeInstance?: boolean): Error.AsObject;
+        static toObject(includeInstance: boolean, msg: Error): Error.AsObject;
+        static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+        static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+        static serializeBinaryToWriter(message: Error, writer: jspb.BinaryWriter): void;
+        static deserializeBinary(bytes: Uint8Array): Error;
+        static deserializeBinaryFromReader(message: Error, reader: jspb.BinaryReader): Error;
+    }
+
+    export namespace Error {
+        export type AsObject = {
+            kind: JobStatusResponse.Error.ErrorKind,
+            msg: string,
+        }
+
+        export enum ErrorKind {
+    UNKNOWN = 0,
+        }
+
+    }
+
+
+    export enum JobStatus {
+    STARTING = 0,
+    RUNNING = 1,
+    SUCCEEDED = 2,
+    FAILED = 3,
     }
 
 }

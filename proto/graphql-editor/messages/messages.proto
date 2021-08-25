@@ -158,3 +158,25 @@ message TextStreamSource {
 	Kind kind = 1;
 	string config = 2;
 }
+
+message JobStatusRequest {
+	string trackId = 1;
+}
+
+message JobStatusResponse {
+	message Error {
+		enum ErrorKind {
+			UNKNOWN = 0;
+		}
+		ErrorKind kind = 1;
+		string msg = 2;
+	}
+	enum JobStatus {
+		STARTING = 0;
+		RUNNING = 1;
+		SUCCEEDED = 2;
+		FAILED = 3;
+	}
+	JobStatus status = 1;
+	repeated Error errors = 3;
+}

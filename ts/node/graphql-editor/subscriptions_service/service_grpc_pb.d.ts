@@ -5,7 +5,6 @@
 /* eslint-disable */
 
 import * as grpc from "@grpc/grpc-js";
-import {handleClientStreamingCall} from "@grpc/grpc-js/build/src/server-call";
 import * as graphql_editor_subscriptions_service_service_pb from "../../graphql-editor/subscriptions_service/service_pb";
 import * as graphql_editor_messages_messages_pb from "../../graphql-editor/messages/messages_pb";
 
