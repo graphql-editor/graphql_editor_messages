@@ -179,6 +179,11 @@ export class UpdateFunctionRequest extends jspb.Message {
   getEnvtype(): UpdateFunctionRequest.EnvType;
   setEnvtype(value: UpdateFunctionRequest.EnvType): UpdateFunctionRequest;
 
+  getNode14opts(): UpdateFunctionRequest.Node14Opts | undefined;
+  setNode14opts(value?: UpdateFunctionRequest.Node14Opts): UpdateFunctionRequest;
+  hasNode14opts(): boolean;
+  clearNode14opts(): UpdateFunctionRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UpdateFunctionRequest.AsObject;
   static toObject(includeInstance: boolean, msg: UpdateFunctionRequest): UpdateFunctionRequest.AsObject;
@@ -193,7 +198,48 @@ export namespace UpdateFunctionRequest {
     url: string,
     secretsList: Array<string>,
     envtype: UpdateFunctionRequest.EnvType,
+    node14opts?: UpdateFunctionRequest.Node14Opts.AsObject,
   }
+
+  export class NodeOpts extends jspb.Message {
+    getBuildscript(): string;
+    setBuildscript(value: string): NodeOpts;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): NodeOpts.AsObject;
+    static toObject(includeInstance: boolean, msg: NodeOpts): NodeOpts.AsObject;
+    static serializeBinaryToWriter(message: NodeOpts, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): NodeOpts;
+    static deserializeBinaryFromReader(message: NodeOpts, reader: jspb.BinaryReader): NodeOpts;
+  }
+
+  export namespace NodeOpts {
+    export type AsObject = {
+      buildscript: string,
+    }
+  }
+
+
+  export class Node14Opts extends jspb.Message {
+    getNodeopts(): UpdateFunctionRequest.NodeOpts | undefined;
+    setNodeopts(value?: UpdateFunctionRequest.NodeOpts): Node14Opts;
+    hasNodeopts(): boolean;
+    clearNodeopts(): Node14Opts;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): Node14Opts.AsObject;
+    static toObject(includeInstance: boolean, msg: Node14Opts): Node14Opts.AsObject;
+    static serializeBinaryToWriter(message: Node14Opts, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): Node14Opts;
+    static deserializeBinaryFromReader(message: Node14Opts, reader: jspb.BinaryReader): Node14Opts;
+  }
+
+  export namespace Node14Opts {
+    export type AsObject = {
+      nodeopts?: UpdateFunctionRequest.NodeOpts.AsObject,
+    }
+  }
+
 
   export enum EnvType { 
     NODE14 = 0,

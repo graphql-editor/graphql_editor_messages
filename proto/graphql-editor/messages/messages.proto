@@ -63,6 +63,13 @@ message UpdateFunctionRequest {
 		NODE14 = 0;
 	};
 	EnvType envType = 4;
+	message NodeOpts {
+		string buildScript = 1;
+	}
+	message Node14Opts {
+		NodeOpts nodeOpts = 1;
+	}
+	Node14Opts node14Opts = 5;
 }
 
 message UpdateFunctionResponse {
