@@ -211,3 +211,20 @@ message JobStatusStreamResponse {
 	JobStatus job_status = 2;
 	repeated Error errors = 3;
 }
+
+message RuntimeLogsRequest {
+	Function function = 1;
+}
+
+message RuntimeLogsResponse {
+	message Error {
+		enum ErrorKind {
+			UNKNOWN = 0;
+		}
+		ErrorKind kind = 1;
+		string msg = 2;
+	}
+	string trackId = 1;
+	Status status = 2;
+	repeated Error errors = 3;
+}
