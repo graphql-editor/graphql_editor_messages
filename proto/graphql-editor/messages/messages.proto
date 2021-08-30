@@ -212,11 +212,11 @@ message JobStatusStreamResponse {
 	repeated Error errors = 3;
 }
 
-message RuntimeLogsRequest {
+message GetRuntimeLogsRequest {
 	Function function = 1;
 }
 
-message RuntimeLogsResponse {
+message GetRuntimeLogsResponse {
 	message Error {
 		enum ErrorKind {
 			UNKNOWN = 0;

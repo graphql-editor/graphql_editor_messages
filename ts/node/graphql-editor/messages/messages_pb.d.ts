@@ -870,60 +870,60 @@ export namespace JobStatusStreamResponse {
 
 }
 
-export class RuntimeLogsRequest extends jspb.Message { 
+export class GetRuntimeLogsRequest extends jspb.Message { 
 
     hasFunction(): boolean;
     clearFunction(): void;
     getFunction(): Function | undefined;
-    setFunction(value?: Function): RuntimeLogsRequest;
+    setFunction(value?: Function): GetRuntimeLogsRequest;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): RuntimeLogsRequest.AsObject;
-    static toObject(includeInstance: boolean, msg: RuntimeLogsRequest): RuntimeLogsRequest.AsObject;
+    toObject(includeInstance?: boolean): GetRuntimeLogsRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: GetRuntimeLogsRequest): GetRuntimeLogsRequest.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: RuntimeLogsRequest, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): RuntimeLogsRequest;
-    static deserializeBinaryFromReader(message: RuntimeLogsRequest, reader: jspb.BinaryReader): RuntimeLogsRequest;
+    static serializeBinaryToWriter(message: GetRuntimeLogsRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): GetRuntimeLogsRequest;
+    static deserializeBinaryFromReader(message: GetRuntimeLogsRequest, reader: jspb.BinaryReader): GetRuntimeLogsRequest;
 }
 
-export namespace RuntimeLogsRequest {
+export namespace GetRuntimeLogsRequest {
     export type AsObject = {
         pb_function?: Function.AsObject,
     }
 }
 
-export class RuntimeLogsResponse extends jspb.Message { 
+export class GetRuntimeLogsResponse extends jspb.Message { 
     getTrackid(): string;
-    setTrackid(value: string): RuntimeLogsResponse;
+    setTrackid(value: string): GetRuntimeLogsResponse;
     getStatus(): Status;
-    setStatus(value: Status): RuntimeLogsResponse;
+    setStatus(value: Status): GetRuntimeLogsResponse;
     clearErrorsList(): void;
-    getErrorsList(): Array<RuntimeLogsResponse.Error>;
-    setErrorsList(value: Array<RuntimeLogsResponse.Error>): RuntimeLogsResponse;
-    addErrors(value?: RuntimeLogsResponse.Error, index?: number): RuntimeLogsResponse.Error;
+    getErrorsList(): Array<GetRuntimeLogsResponse.Error>;
+    setErrorsList(value: Array<GetRuntimeLogsResponse.Error>): GetRuntimeLogsResponse;
+    addErrors(value?: GetRuntimeLogsResponse.Error, index?: number): GetRuntimeLogsResponse.Error;
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): RuntimeLogsResponse.AsObject;
-    static toObject(includeInstance: boolean, msg: RuntimeLogsResponse): RuntimeLogsResponse.AsObject;
+    toObject(includeInstance?: boolean): GetRuntimeLogsResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: GetRuntimeLogsResponse): GetRuntimeLogsResponse.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: RuntimeLogsResponse, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): RuntimeLogsResponse;
-    static deserializeBinaryFromReader(message: RuntimeLogsResponse, reader: jspb.BinaryReader): RuntimeLogsResponse;
+    static serializeBinaryToWriter(message: GetRuntimeLogsResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): GetRuntimeLogsResponse;
+    static deserializeBinaryFromReader(message: GetRuntimeLogsResponse, reader: jspb.BinaryReader): GetRuntimeLogsResponse;
 }
 
-export namespace RuntimeLogsResponse {
+export namespace GetRuntimeLogsResponse {
     export type AsObject = {
         trackid: string,
         status: Status,
-        errorsList: Array<RuntimeLogsResponse.Error.AsObject>,
+        errorsList: Array<GetRuntimeLogsResponse.Error.AsObject>,
     }
 
 
     export class Error extends jspb.Message { 
-        getKind(): RuntimeLogsResponse.Error.ErrorKind;
-        setKind(value: RuntimeLogsResponse.Error.ErrorKind): Error;
+        getKind(): GetRuntimeLogsResponse.Error.ErrorKind;
+        setKind(value: GetRuntimeLogsResponse.Error.ErrorKind): Error;
         getMsg(): string;
         setMsg(value: string): Error;
 
@@ -939,7 +939,7 @@ export namespace RuntimeLogsResponse {
 
     export namespace Error {
         export type AsObject = {
-            kind: RuntimeLogsResponse.Error.ErrorKind,
+            kind: GetRuntimeLogsResponse.Error.ErrorKind,
             msg: string,
         }
 
