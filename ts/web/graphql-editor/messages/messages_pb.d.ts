@@ -66,8 +66,8 @@ export namespace CreateFunctionRequest {
 }
 
 export class CreateFunctionResponse extends jspb.Message {
-  getTrackid(): string;
-  setTrackid(value: string): CreateFunctionResponse;
+  getTrackId(): string;
+  setTrackId(value: string): CreateFunctionResponse;
 
   getStatus(): Status;
   setStatus(value: Status): CreateFunctionResponse;
@@ -87,7 +87,7 @@ export class CreateFunctionResponse extends jspb.Message {
 
 export namespace CreateFunctionResponse {
   export type AsObject = {
-    trackid: string,
+    trackId: string,
     status: Status,
     errorsList: Array<CreateFunctionResponse.Error.AsObject>,
   }
@@ -162,6 +162,42 @@ export namespace ReadFunctionResponse {
   }
 }
 
+export class CORSConfig extends jspb.Message {
+  getAllowedOriginsList(): Array<string>;
+  setAllowedOriginsList(value: Array<string>): CORSConfig;
+  clearAllowedOriginsList(): CORSConfig;
+  addAllowedOrigins(value: string, index?: number): CORSConfig;
+
+  getAllowedHeadersList(): Array<string>;
+  setAllowedHeadersList(value: Array<string>): CORSConfig;
+  clearAllowedHeadersList(): CORSConfig;
+  addAllowedHeaders(value: string, index?: number): CORSConfig;
+
+  getAllowedMethodsList(): Array<HTTPMethod>;
+  setAllowedMethodsList(value: Array<HTTPMethod>): CORSConfig;
+  clearAllowedMethodsList(): CORSConfig;
+  addAllowedMethods(value: HTTPMethod, index?: number): CORSConfig;
+
+  getAllowCredentials(): boolean;
+  setAllowCredentials(value: boolean): CORSConfig;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): CORSConfig.AsObject;
+  static toObject(includeInstance: boolean, msg: CORSConfig): CORSConfig.AsObject;
+  static serializeBinaryToWriter(message: CORSConfig, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): CORSConfig;
+  static deserializeBinaryFromReader(message: CORSConfig, reader: jspb.BinaryReader): CORSConfig;
+}
+
+export namespace CORSConfig {
+  export type AsObject = {
+    allowedOriginsList: Array<string>,
+    allowedHeadersList: Array<string>,
+    allowedMethodsList: Array<HTTPMethod>,
+    allowCredentials: boolean,
+  }
+}
+
 export class UpdateFunctionRequest extends jspb.Message {
   getFunction(): Function | undefined;
   setFunction(value?: Function): UpdateFunctionRequest;
@@ -176,13 +212,18 @@ export class UpdateFunctionRequest extends jspb.Message {
   clearSecretsList(): UpdateFunctionRequest;
   addSecrets(value: string, index?: number): UpdateFunctionRequest;
 
-  getEnvtype(): UpdateFunctionRequest.EnvType;
-  setEnvtype(value: UpdateFunctionRequest.EnvType): UpdateFunctionRequest;
+  getEnvType(): UpdateFunctionRequest.EnvType;
+  setEnvType(value: UpdateFunctionRequest.EnvType): UpdateFunctionRequest;
 
-  getNode14opts(): UpdateFunctionRequest.Node14Opts | undefined;
-  setNode14opts(value?: UpdateFunctionRequest.Node14Opts): UpdateFunctionRequest;
-  hasNode14opts(): boolean;
-  clearNode14opts(): UpdateFunctionRequest;
+  getNode14Opts(): UpdateFunctionRequest.Node14Opts | undefined;
+  setNode14Opts(value?: UpdateFunctionRequest.Node14Opts): UpdateFunctionRequest;
+  hasNode14Opts(): boolean;
+  clearNode14Opts(): UpdateFunctionRequest;
+
+  getCors(): CORSConfig | undefined;
+  setCors(value?: CORSConfig): UpdateFunctionRequest;
+  hasCors(): boolean;
+  clearCors(): UpdateFunctionRequest;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UpdateFunctionRequest.AsObject;
@@ -197,13 +238,14 @@ export namespace UpdateFunctionRequest {
     pb_function?: Function.AsObject,
     url: string,
     secretsList: Array<string>,
-    envtype: UpdateFunctionRequest.EnvType,
-    node14opts?: UpdateFunctionRequest.Node14Opts.AsObject,
+    envType: UpdateFunctionRequest.EnvType,
+    node14Opts?: UpdateFunctionRequest.Node14Opts.AsObject,
+    cors?: CORSConfig.AsObject,
   }
 
   export class NodeOpts extends jspb.Message {
-    getBuildscript(): string;
-    setBuildscript(value: string): NodeOpts;
+    getBuildScript(): string;
+    setBuildScript(value: string): NodeOpts;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): NodeOpts.AsObject;
@@ -215,16 +257,16 @@ export namespace UpdateFunctionRequest {
 
   export namespace NodeOpts {
     export type AsObject = {
-      buildscript: string,
+      buildScript: string,
     }
   }
 
 
   export class Node14Opts extends jspb.Message {
-    getNodeopts(): UpdateFunctionRequest.NodeOpts | undefined;
-    setNodeopts(value?: UpdateFunctionRequest.NodeOpts): Node14Opts;
-    hasNodeopts(): boolean;
-    clearNodeopts(): Node14Opts;
+    getNodeOpts(): UpdateFunctionRequest.NodeOpts | undefined;
+    setNodeOpts(value?: UpdateFunctionRequest.NodeOpts): Node14Opts;
+    hasNodeOpts(): boolean;
+    clearNodeOpts(): Node14Opts;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Node14Opts.AsObject;
@@ -236,7 +278,7 @@ export namespace UpdateFunctionRequest {
 
   export namespace Node14Opts {
     export type AsObject = {
-      nodeopts?: UpdateFunctionRequest.NodeOpts.AsObject,
+      nodeOpts?: UpdateFunctionRequest.NodeOpts.AsObject,
     }
   }
 
@@ -247,8 +289,8 @@ export namespace UpdateFunctionRequest {
 }
 
 export class UpdateFunctionResponse extends jspb.Message {
-  getTrackid(): string;
-  setTrackid(value: string): UpdateFunctionResponse;
+  getTrackId(): string;
+  setTrackId(value: string): UpdateFunctionResponse;
 
   getStatus(): Status;
   setStatus(value: Status): UpdateFunctionResponse;
@@ -268,7 +310,7 @@ export class UpdateFunctionResponse extends jspb.Message {
 
 export namespace UpdateFunctionResponse {
   export type AsObject = {
-    trackid: string,
+    trackId: string,
     status: Status,
     errorsList: Array<UpdateFunctionResponse.Error.AsObject>,
   }
@@ -322,8 +364,8 @@ export namespace DeleteFunctionRequest {
 }
 
 export class DeleteFunctionResponse extends jspb.Message {
-  getTrackid(): string;
-  setTrackid(value: string): DeleteFunctionResponse;
+  getTrackId(): string;
+  setTrackId(value: string): DeleteFunctionResponse;
 
   getStatus(): Status;
   setStatus(value: Status): DeleteFunctionResponse;
@@ -343,7 +385,7 @@ export class DeleteFunctionResponse extends jspb.Message {
 
 export namespace DeleteFunctionResponse {
   export type AsObject = {
-    trackid: string,
+    trackId: string,
     status: Status,
     errorsList: Array<DeleteFunctionResponse.Error.AsObject>,
   }
@@ -397,8 +439,8 @@ export namespace LogStreamRequest {
 }
 
 export class LogStreamResponse extends jspb.Message {
-  getTrackid(): string;
-  setTrackid(value: string): LogStreamResponse;
+  getTrackId(): string;
+  setTrackId(value: string): LogStreamResponse;
 
   getStatus(): Status;
   setStatus(value: Status): LogStreamResponse;
@@ -418,7 +460,7 @@ export class LogStreamResponse extends jspb.Message {
 
 export namespace LogStreamResponse {
   export type AsObject = {
-    trackid: string,
+    trackId: string,
     status: Status,
     errorsList: Array<LogStreamResponse.Error.AsObject>,
   }
@@ -452,8 +494,8 @@ export namespace LogStreamResponse {
 }
 
 export class TextStreamRequest extends jspb.Message {
-  getTrackid(): string;
-  setTrackid(value: string): TextStreamRequest;
+  getTrackId(): string;
+  setTrackId(value: string): TextStreamRequest;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): TextStreamRequest.AsObject;
@@ -465,7 +507,7 @@ export class TextStreamRequest extends jspb.Message {
 
 export namespace TextStreamRequest {
   export type AsObject = {
-    trackid: string,
+    trackId: string,
   }
 }
 
@@ -651,8 +693,8 @@ export namespace TextStreamSource {
 }
 
 export class GetJobStatusRequest extends jspb.Message {
-  getTrackid(): string;
-  setTrackid(value: string): GetJobStatusRequest;
+  getTrackId(): string;
+  setTrackId(value: string): GetJobStatusRequest;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetJobStatusRequest.AsObject;
@@ -664,7 +706,7 @@ export class GetJobStatusRequest extends jspb.Message {
 
 export namespace GetJobStatusRequest {
   export type AsObject = {
-    trackid: string,
+    trackId: string,
   }
 }
 
@@ -731,8 +773,8 @@ export namespace GetJobStatusResponse {
 }
 
 export class JobStatusStreamRequest extends jspb.Message {
-  getTrackid(): string;
-  setTrackid(value: string): JobStatusStreamRequest;
+  getTrackId(): string;
+  setTrackId(value: string): JobStatusStreamRequest;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): JobStatusStreamRequest.AsObject;
@@ -744,7 +786,7 @@ export class JobStatusStreamRequest extends jspb.Message {
 
 export namespace JobStatusStreamRequest {
   export type AsObject = {
-    trackid: string,
+    trackId: string,
   }
 }
 
@@ -831,8 +873,8 @@ export namespace GetRuntimeLogsRequest {
 }
 
 export class GetRuntimeLogsResponse extends jspb.Message {
-  getTrackid(): string;
-  setTrackid(value: string): GetRuntimeLogsResponse;
+  getTrackId(): string;
+  setTrackId(value: string): GetRuntimeLogsResponse;
 
   getStatus(): Status;
   setStatus(value: Status): GetRuntimeLogsResponse;
@@ -852,7 +894,7 @@ export class GetRuntimeLogsResponse extends jspb.Message {
 
 export namespace GetRuntimeLogsResponse {
   export type AsObject = {
-    trackid: string,
+    trackId: string,
     status: Status,
     errorsList: Array<GetRuntimeLogsResponse.Error.AsObject>,
   }
@@ -885,6 +927,89 @@ export namespace GetRuntimeLogsResponse {
 
 }
 
+export class GetFunctionConfigRequest extends jspb.Message {
+  getFunction(): Function | undefined;
+  setFunction(value?: Function): GetFunctionConfigRequest;
+  hasFunction(): boolean;
+  clearFunction(): GetFunctionConfigRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetFunctionConfigRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: GetFunctionConfigRequest): GetFunctionConfigRequest.AsObject;
+  static serializeBinaryToWriter(message: GetFunctionConfigRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetFunctionConfigRequest;
+  static deserializeBinaryFromReader(message: GetFunctionConfigRequest, reader: jspb.BinaryReader): GetFunctionConfigRequest;
+}
+
+export namespace GetFunctionConfigRequest {
+  export type AsObject = {
+    pb_function?: Function.AsObject,
+  }
+}
+
+export class GetFunctionConfigResponse extends jspb.Message {
+  getStatus(): Status;
+  setStatus(value: Status): GetFunctionConfigResponse;
+
+  getErrorsList(): Array<GetFunctionConfigResponse.Error>;
+  setErrorsList(value: Array<GetFunctionConfigResponse.Error>): GetFunctionConfigResponse;
+  clearErrorsList(): GetFunctionConfigResponse;
+  addErrors(value?: GetFunctionConfigResponse.Error, index?: number): GetFunctionConfigResponse.Error;
+
+  getSecretsList(): Array<string>;
+  setSecretsList(value: Array<string>): GetFunctionConfigResponse;
+  clearSecretsList(): GetFunctionConfigResponse;
+  addSecrets(value: string, index?: number): GetFunctionConfigResponse;
+
+  getCors(): CORSConfig | undefined;
+  setCors(value?: CORSConfig): GetFunctionConfigResponse;
+  hasCors(): boolean;
+  clearCors(): GetFunctionConfigResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetFunctionConfigResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: GetFunctionConfigResponse): GetFunctionConfigResponse.AsObject;
+  static serializeBinaryToWriter(message: GetFunctionConfigResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetFunctionConfigResponse;
+  static deserializeBinaryFromReader(message: GetFunctionConfigResponse, reader: jspb.BinaryReader): GetFunctionConfigResponse;
+}
+
+export namespace GetFunctionConfigResponse {
+  export type AsObject = {
+    status: Status,
+    errorsList: Array<GetFunctionConfigResponse.Error.AsObject>,
+    secretsList: Array<string>,
+    cors?: CORSConfig.AsObject,
+  }
+
+  export class Error extends jspb.Message {
+    getKind(): GetFunctionConfigResponse.Error.ErrorKind;
+    setKind(value: GetFunctionConfigResponse.Error.ErrorKind): Error;
+
+    getMsg(): string;
+    setMsg(value: string): Error;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): Error.AsObject;
+    static toObject(includeInstance: boolean, msg: Error): Error.AsObject;
+    static serializeBinaryToWriter(message: Error, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): Error;
+    static deserializeBinaryFromReader(message: Error, reader: jspb.BinaryReader): Error;
+  }
+
+  export namespace Error {
+    export type AsObject = {
+      kind: GetFunctionConfigResponse.Error.ErrorKind,
+      msg: string,
+    }
+
+    export enum ErrorKind { 
+      UNKNOWN = 0,
+    }
+  }
+
+}
+
 export enum Runtime { 
   NODEJS14 = 0,
 }
@@ -896,4 +1021,12 @@ export enum ReadFunctionStatus {
   READY = 0,
   IN_PROGRESS = 1,
   NOT_DEPLOYED = 2,
+}
+export enum HTTPMethod { 
+  GET = 0,
+  HEAD = 1,
+  POST = 2,
+  PUT = 3,
+  DELETE = 4,
+  PATCH = 5,
 }

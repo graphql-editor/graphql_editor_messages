@@ -35,7 +35,7 @@ message CreateFunctionResponse {
 		ErrorKind kind = 1;
 		string msg = 2;
 	}
-	string trackId = 1;
+	string track_id = 1;
 	Status status = 2;
 	repeated Error errors = 3;
 }
@@ -55,6 +55,22 @@ message ReadFunctionResponse {
 	string url = 2;
 }
 
+enum HTTPMethod {
+	GET = 0;
+	HEAD = 1;
+	POST = 2;
+	PUT = 3;
+	DELETE = 4;
+	PATCH = 5;
+}
+
+message CORSConfig {
+	repeated string allowed_origins = 1;
+	repeated string allowed_headers = 2;
+	repeated HTTPMethod allowed_methods = 3;
+	bool allow_credentials = 4;
+}
+
 message UpdateFunctionRequest {
 	Function function = 1;
 	string url = 2;
@@ -62,14 +78,15 @@ message UpdateFunctionRequest {
 	enum EnvType {
 		NODE14 = 0;
 	};
-	EnvType envType = 4;
+	EnvType env_type = 4;
 	message NodeOpts {
-		string buildScript = 1;
+		string build_script = 1;
 	}
 	message Node14Opts {
-		NodeOpts nodeOpts = 1;
+		NodeOpts node_opts = 1;
 	}
-	Node14Opts node14Opts = 5;
+	Node14Opts node14_opts = 5;
+	CORSConfig cors = 6;
 }
 
 message UpdateFunctionResponse {
@@ -80,7 +97,7 @@ message UpdateFunctionResponse {
 		ErrorKind kind = 1;
 		string msg = 2;
 	}
-	string trackId = 1;
+	string track_id = 1;
 	Status status = 2;
 	repeated Error errors = 3;
 }
@@ -97,7 +114,7 @@ message DeleteFunctionResponse {
 		ErrorKind kind = 1;
 		string msg = 2;
 	}
-	string trackId = 1;
+	string track_id = 1;
 	Status status = 2;
 	repeated Error errors = 3;
 }
@@ -114,13 +131,13 @@ message LogStreamResponse {
 		ErrorKind kind = 1;
 		string msg = 2;
 	}
-	string trackId = 1;
+	string track_id = 1;
 	Status status = 2;
 	repeated Error errors = 3;
 }
 
 message TextStreamRequest {
-	string trackId = 1;
+	string track_id = 1;
 }
 
 message TextStreamResponse {
@@ -167,7 +184,7 @@ message TextStreamSource {
 }
 
 message GetJobStatusRequest {
-	string trackId = 1;
+	string track_id = 1;
 }
 
 message GetJobStatusResponse {
@@ -190,7 +207,7 @@ message GetJobStatusResponse {
 }
 
 message JobStatusStreamRequest {
-	string trackId = 1;
+	string track_id = 1;
 }
 
 message JobStatusStreamResponse {
@@ -224,7 +241,25 @@ message GetRuntimeLogsResponse {
 		ErrorKind kind = 1;
 		string msg = 2;
 	}
-	string trackId = 1;
+	string track_id = 1;
 	Status status = 2;
 	repeated Error errors = 3;
+}
+
+message GetFunctionConfigRequest {
+	Function function = 1;
+}
+
+message GetFunctionConfigResponse {
+	message Error {
+		enum ErrorKind {
+			UNKNOWN = 0;
+		}
+		ErrorKind kind = 1;
+		string msg = 2;
+	}
+	Status status = 1;
+	repeated Error errors = 2;
+	repeated string secrets = 3;
+	CORSConfig cors = 4;
 }
