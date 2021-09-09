@@ -279,4 +279,5 @@ message SetFunctionConfigResponse {
 		string msg = 2;
 	}
 	Status status = 1;
+	repeated Error errors = 2;
 }
