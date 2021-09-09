@@ -1081,6 +1081,90 @@ export namespace GetFunctionConfigResponse {
 
 }
 
+export class SetFunctionConfigRequest extends jspb.Message { 
+
+    hasFunction(): boolean;
+    clearFunction(): void;
+    getFunction(): Function | undefined;
+    setFunction(value?: Function): SetFunctionConfigRequest;
+    clearSecretsList(): void;
+    getSecretsList(): Array<string>;
+    setSecretsList(value: Array<string>): SetFunctionConfigRequest;
+    addSecrets(value: string, index?: number): string;
+
+    hasCors(): boolean;
+    clearCors(): void;
+    getCors(): CORSConfig | undefined;
+    setCors(value?: CORSConfig): SetFunctionConfigRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): SetFunctionConfigRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: SetFunctionConfigRequest): SetFunctionConfigRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: SetFunctionConfigRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): SetFunctionConfigRequest;
+    static deserializeBinaryFromReader(message: SetFunctionConfigRequest, reader: jspb.BinaryReader): SetFunctionConfigRequest;
+}
+
+export namespace SetFunctionConfigRequest {
+    export type AsObject = {
+        pb_function?: Function.AsObject,
+        secretsList: Array<string>,
+        cors?: CORSConfig.AsObject,
+    }
+}
+
+export class SetFunctionConfigResponse extends jspb.Message { 
+    getStatus(): Status;
+    setStatus(value: Status): SetFunctionConfigResponse;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): SetFunctionConfigResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: SetFunctionConfigResponse): SetFunctionConfigResponse.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: SetFunctionConfigResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): SetFunctionConfigResponse;
+    static deserializeBinaryFromReader(message: SetFunctionConfigResponse, reader: jspb.BinaryReader): SetFunctionConfigResponse;
+}
+
+export namespace SetFunctionConfigResponse {
+    export type AsObject = {
+        status: Status,
+    }
+
+
+    export class Error extends jspb.Message { 
+        getKind(): SetFunctionConfigResponse.Error.ErrorKind;
+        setKind(value: SetFunctionConfigResponse.Error.ErrorKind): Error;
+        getMsg(): string;
+        setMsg(value: string): Error;
+
+        serializeBinary(): Uint8Array;
+        toObject(includeInstance?: boolean): Error.AsObject;
+        static toObject(includeInstance: boolean, msg: Error): Error.AsObject;
+        static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+        static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+        static serializeBinaryToWriter(message: Error, writer: jspb.BinaryWriter): void;
+        static deserializeBinary(bytes: Uint8Array): Error;
+        static deserializeBinaryFromReader(message: Error, reader: jspb.BinaryReader): Error;
+    }
+
+    export namespace Error {
+        export type AsObject = {
+            kind: SetFunctionConfigResponse.Error.ErrorKind,
+            msg: string,
+        }
+
+        export enum ErrorKind {
+    UNKNOWN = 0,
+        }
+
+    }
+
+}
+
 export enum Runtime {
     NODEJS14 = 0,
 }

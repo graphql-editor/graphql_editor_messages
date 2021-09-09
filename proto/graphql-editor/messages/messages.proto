@@ -263,3 +263,20 @@ message GetFunctionConfigResponse {
 	repeated string secrets = 3;
 	CORSConfig cors = 4;
 }
+
+message SetFunctionConfigRequest {
+	Function function = 1;
+	repeated string secrets = 3;
+	CORSConfig cors = 4;
+}
+
+message SetFunctionConfigResponse {
+	message Error {
+		enum ErrorKind {
+			UNKNOWN = 0;
+		}
+		ErrorKind kind = 1;
+		string msg = 2;
+	}
+	Status status = 1;
+}
