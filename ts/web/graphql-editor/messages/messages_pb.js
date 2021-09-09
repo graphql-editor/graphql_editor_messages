@@ -907,7 +907,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.graphqleditor.messages.SetFunctionConfigResponse = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.graphqleditor.messages.SetFunctionConfigResponse.repeatedFields_, null);
 };
 goog.inherits(proto.graphqleditor.messages.SetFunctionConfigResponse, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -8400,6 +8400,13 @@ proto.graphqleditor.messages.SetFunctionConfigRequest.prototype.hasCors = functi
 
 
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.graphqleditor.messages.SetFunctionConfigResponse.repeatedFields_ = [2];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -8431,7 +8438,9 @@ proto.graphqleditor.messages.SetFunctionConfigResponse.prototype.toObject = func
  */
 proto.graphqleditor.messages.SetFunctionConfigResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    status: jspb.Message.getFieldWithDefault(msg, 1, 0)
+    status: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    errorsList: jspb.Message.toObjectList(msg.getErrorsList(),
+    proto.graphqleditor.messages.SetFunctionConfigResponse.Error.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -8472,6 +8481,11 @@ proto.graphqleditor.messages.SetFunctionConfigResponse.deserializeBinaryFromRead
       var value = /** @type {!proto.graphqleditor.messages.Status} */ (reader.readEnum());
       msg.setStatus(value);
       break;
+    case 2:
+      var value = new proto.graphqleditor.messages.SetFunctionConfigResponse.Error;
+      reader.readMessage(value,proto.graphqleditor.messages.SetFunctionConfigResponse.Error.deserializeBinaryFromReader);
+      msg.addErrors(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -8506,6 +8520,14 @@ proto.graphqleditor.messages.SetFunctionConfigResponse.serializeBinaryToWriter =
     writer.writeEnum(
       1,
       f
+    );
+  }
+  f = message.getErrorsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      2,
+      f,
+      proto.graphqleditor.messages.SetFunctionConfigResponse.Error.serializeBinaryToWriter
     );
   }
 };
@@ -8693,6 +8715,44 @@ proto.graphqleditor.messages.SetFunctionConfigResponse.prototype.getStatus = fun
  */
 proto.graphqleditor.messages.SetFunctionConfigResponse.prototype.setStatus = function(value) {
   return jspb.Message.setProto3EnumField(this, 1, value);
+};
+
+
+/**
+ * repeated Error errors = 2;
+ * @return {!Array<!proto.graphqleditor.messages.SetFunctionConfigResponse.Error>}
+ */
+proto.graphqleditor.messages.SetFunctionConfigResponse.prototype.getErrorsList = function() {
+  return /** @type{!Array<!proto.graphqleditor.messages.SetFunctionConfigResponse.Error>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.graphqleditor.messages.SetFunctionConfigResponse.Error, 2));
+};
+
+
+/**
+ * @param {!Array<!proto.graphqleditor.messages.SetFunctionConfigResponse.Error>} value
+ * @return {!proto.graphqleditor.messages.SetFunctionConfigResponse} returns this
+*/
+proto.graphqleditor.messages.SetFunctionConfigResponse.prototype.setErrorsList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
+};
+
+
+/**
+ * @param {!proto.graphqleditor.messages.SetFunctionConfigResponse.Error=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.graphqleditor.messages.SetFunctionConfigResponse.Error}
+ */
+proto.graphqleditor.messages.SetFunctionConfigResponse.prototype.addErrors = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.graphqleditor.messages.SetFunctionConfigResponse.Error, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.graphqleditor.messages.SetFunctionConfigResponse} returns this
+ */
+proto.graphqleditor.messages.SetFunctionConfigResponse.prototype.clearErrorsList = function() {
+  return this.setErrorsList([]);
 };
 
 

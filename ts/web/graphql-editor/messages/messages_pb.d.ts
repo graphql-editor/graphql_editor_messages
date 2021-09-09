@@ -1046,6 +1046,11 @@ export class SetFunctionConfigResponse extends jspb.Message {
   getStatus(): Status;
   setStatus(value: Status): SetFunctionConfigResponse;
 
+  getErrorsList(): Array<SetFunctionConfigResponse.Error>;
+  setErrorsList(value: Array<SetFunctionConfigResponse.Error>): SetFunctionConfigResponse;
+  clearErrorsList(): SetFunctionConfigResponse;
+  addErrors(value?: SetFunctionConfigResponse.Error, index?: number): SetFunctionConfigResponse.Error;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): SetFunctionConfigResponse.AsObject;
   static toObject(includeInstance: boolean, msg: SetFunctionConfigResponse): SetFunctionConfigResponse.AsObject;
@@ -1057,6 +1062,7 @@ export class SetFunctionConfigResponse extends jspb.Message {
 export namespace SetFunctionConfigResponse {
   export type AsObject = {
     status: Status,
+    errorsList: Array<SetFunctionConfigResponse.Error.AsObject>,
   }
 
   export class Error extends jspb.Message {
