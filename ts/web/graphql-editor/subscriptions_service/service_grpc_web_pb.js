@@ -24,7 +24,7 @@ proto.graphqleditor.subscription_service = require('./service_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -32,7 +32,7 @@ proto.graphqleditor.subscription_service = require('./service_pb.js');
 proto.graphqleditor.subscription_service.SubscriptionServiceClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -50,7 +50,7 @@ proto.graphqleditor.subscription_service.SubscriptionServiceClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -58,7 +58,7 @@ proto.graphqleditor.subscription_service.SubscriptionServiceClient =
 proto.graphqleditor.subscription_service.SubscriptionServicePromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -96,27 +96,8 @@ const methodDescriptor_SubscriptionService_Subscription = new grpc.web.MethodDes
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.graphqleditor.messages.SubscriptionRequest,
- *   !proto.graphqleditor.messages.SubscriptionResponse>}
- */
-const methodInfo_SubscriptionService_Subscription = new grpc.web.AbstractClientBase.MethodInfo(
-  graphql$editor_messages_messages_pb.SubscriptionResponse,
-  /**
-   * @param {!proto.graphqleditor.messages.SubscriptionRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  graphql$editor_messages_messages_pb.SubscriptionResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.graphqleditor.messages.SubscriptionRequest} request The request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!grpc.web.ClientReadableStream<!proto.graphqleditor.messages.SubscriptionResponse>}
  *     The XHR Node Readable Stream
@@ -133,7 +114,7 @@ proto.graphqleditor.subscription_service.SubscriptionServiceClient.prototype.sub
 
 /**
  * @param {!proto.graphqleditor.messages.SubscriptionRequest} request The request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!grpc.web.ClientReadableStream<!proto.graphqleditor.messages.SubscriptionResponse>}
  *     The XHR Node Readable Stream

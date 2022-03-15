@@ -1096,6 +1096,8 @@ export class SetFunctionConfigRequest extends jspb.Message {
     clearCors(): void;
     getCors(): CORSConfig | undefined;
     setCors(value?: CORSConfig): SetFunctionConfigRequest;
+    getRemoveallsecrets(): boolean;
+    setRemoveallsecrets(value: boolean): SetFunctionConfigRequest;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): SetFunctionConfigRequest.AsObject;
@@ -1112,6 +1114,7 @@ export namespace SetFunctionConfigRequest {
         pb_function?: Function.AsObject,
         secretsList: Array<string>,
         cors?: CORSConfig.AsObject,
+        removeallsecrets: boolean,
     }
 }
 

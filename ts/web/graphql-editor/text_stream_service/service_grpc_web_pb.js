@@ -24,7 +24,7 @@ proto.graphqleditor.text_stream_service = require('./service_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -32,7 +32,7 @@ proto.graphqleditor.text_stream_service = require('./service_pb.js');
 proto.graphqleditor.text_stream_service.TextStreamServiceClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -50,7 +50,7 @@ proto.graphqleditor.text_stream_service.TextStreamServiceClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -58,7 +58,7 @@ proto.graphqleditor.text_stream_service.TextStreamServiceClient =
 proto.graphqleditor.text_stream_service.TextStreamServicePromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -96,27 +96,8 @@ const methodDescriptor_TextStreamService_TextStream = new grpc.web.MethodDescrip
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.graphqleditor.messages.TextStreamRequest,
- *   !proto.graphqleditor.messages.TextStreamResponse>}
- */
-const methodInfo_TextStreamService_TextStream = new grpc.web.AbstractClientBase.MethodInfo(
-  graphql$editor_messages_messages_pb.TextStreamResponse,
-  /**
-   * @param {!proto.graphqleditor.messages.TextStreamRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  graphql$editor_messages_messages_pb.TextStreamResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.graphqleditor.messages.TextStreamRequest} request The request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!grpc.web.ClientReadableStream<!proto.graphqleditor.messages.TextStreamResponse>}
  *     The XHR Node Readable Stream
@@ -133,7 +114,7 @@ proto.graphqleditor.text_stream_service.TextStreamServiceClient.prototype.textSt
 
 /**
  * @param {!proto.graphqleditor.messages.TextStreamRequest} request The request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!grpc.web.ClientReadableStream<!proto.graphqleditor.messages.TextStreamResponse>}
  *     The XHR Node Readable Stream

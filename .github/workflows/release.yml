@@ -7,8 +7,8 @@ jobs:
   release:
     env:
       GRPC_WEB_VER: 1.2.1
-      PROTOC_GO: v1.26.0
-      PROTOC_GRPC_GO: v1.1
+      PROTOC_GO: v1.27.1
+      PROTOC_GRPC_GO: v1.2
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-go@v2
@@ -21,7 +21,7 @@ jobs:
       - name: Install Protoc
         uses: arduino/setup-protoc@v1
         with:
-          version: "3.14"
+          version: "3.19"
       - uses: actions/checkout@v2
       - name: install global gen deps
         run: |

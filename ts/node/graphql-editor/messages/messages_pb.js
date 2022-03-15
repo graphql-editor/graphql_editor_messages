@@ -13,7 +13,13 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = Function('return this')();
+var global = (function() {
+  if (this) { return this; }
+  if (typeof window !== 'undefined') { return window; }
+  if (typeof global !== 'undefined') { return global; }
+  if (typeof self !== 'undefined') { return self; }
+  return Function('return this')();
+}.call(null));
 
 var stucco$ts$proto$gen_proto_messages_messages_pb = require('../../stucco-ts-proto-gen/proto/messages/messages_pb.js');
 goog.object.extend(proto, stucco$ts$proto$gen_proto_messages_messages_pb);
@@ -8182,7 +8188,8 @@ proto.graphqleditor.messages.SetFunctionConfigRequest.toObject = function(includ
   var f, obj = {
     pb_function: (f = msg.getFunction()) && proto.graphqleditor.messages.Function.toObject(includeInstance, f),
     secretsList: (f = jspb.Message.getRepeatedField(msg, 3)) == null ? undefined : f,
-    cors: (f = msg.getCors()) && proto.graphqleditor.messages.CORSConfig.toObject(includeInstance, f)
+    cors: (f = msg.getCors()) && proto.graphqleditor.messages.CORSConfig.toObject(includeInstance, f),
+    removeallsecrets: jspb.Message.getBooleanFieldWithDefault(msg, 5, false)
   };
 
   if (includeInstance) {
@@ -8232,6 +8239,10 @@ proto.graphqleditor.messages.SetFunctionConfigRequest.deserializeBinaryFromReade
       var value = new proto.graphqleditor.messages.CORSConfig;
       reader.readMessage(value,proto.graphqleditor.messages.CORSConfig.deserializeBinaryFromReader);
       msg.setCors(value);
+      break;
+    case 5:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setRemoveallsecrets(value);
       break;
     default:
       reader.skipField();
@@ -8283,6 +8294,13 @@ proto.graphqleditor.messages.SetFunctionConfigRequest.serializeBinaryToWriter = 
       4,
       f,
       proto.graphqleditor.messages.CORSConfig.serializeBinaryToWriter
+    );
+  }
+  f = message.getRemoveallsecrets();
+  if (f) {
+    writer.writeBool(
+      5,
+      f
     );
   }
 };
@@ -8396,6 +8414,24 @@ proto.graphqleditor.messages.SetFunctionConfigRequest.prototype.clearCors = func
  */
 proto.graphqleditor.messages.SetFunctionConfigRequest.prototype.hasCors = function() {
   return jspb.Message.getField(this, 4) != null;
+};
+
+
+/**
+ * optional bool removeAllSecrets = 5;
+ * @return {boolean}
+ */
+proto.graphqleditor.messages.SetFunctionConfigRequest.prototype.getRemoveallsecrets = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 5, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.graphqleditor.messages.SetFunctionConfigRequest} returns this
+ */
+proto.graphqleditor.messages.SetFunctionConfigRequest.prototype.setRemoveallsecrets = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 5, value);
 };
 
 
