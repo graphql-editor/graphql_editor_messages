@@ -7,6 +7,7 @@ import "stucco-ts-proto-gen/proto/messages/messages.proto";
 
 enum Runtime {
 	NODEJS14 = 0;
+	NODEJS16 = 1;
 }
 
 enum Status {
@@ -86,8 +87,12 @@ message UpdateFunctionRequest {
 	message Node14Opts {
 		NodeOpts node_opts = 1;
 	}
+	message Node16Opts {
+		NodeOpts node_opts = 1;
+	}
 	Node14Opts node14_opts = 5;
 	CORSConfig cors = 6;
+	Node16Opts node16_opts = 7;
 }
 
 message UpdateFunctionResponse {
